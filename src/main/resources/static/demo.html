@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--<link rel="stylesheet" href="Jcrop/css/jquery.Jcrop.css">-->
+    <link rel="stylesheet" href="Jcrop/css/jquery.Jcrop.min.css">
+    <!--<link rel="stylesheet" href="bootstrap-fileinput/css/fileinput.css">-->
+    <link rel="stylesheet" href="bootstrap-fileinput/css/fileinput.min.css">
+
+
+
+    <!--Jcrop依赖于jquery，要先引入jquery-->
+    <!--<script src="jquery-3.4.1.js"></script>-->
+    <script src="Jcrop/js/jquery.min.js"></script>
+    <!--<script src="Jcrop/js/jquery.Jcrop.js"></script>-->
+    <script src="Jcrop/js/jquery.Jcrop.min.js"></script>
+    <script src="bootstrap-fileinput/js/fileinput.js"></script>
+    <!--中文-->
+    <script src="bootstrap-fileinput/js/locales/zh.js"></script>
+
+
+
+    <!--        &lt;!&ndash; bootstrap 4.x is supported. You can also use the bootstrap css 3.3.x versions &ndash;&gt;
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
+            &lt;!&ndash; if using RTL (Right-To-Left) orientation, load the RTL CSS file after fileinput.css by uncommenting below &ndash;&gt;
+            &lt;!&ndash; link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/css/fileinput-rtl.min.css" media="all" rel="stylesheet" type="text/css" /&ndash;&gt;
+            &lt;!&ndash; the font awesome icon library if using with `fas` theme (or Bootstrap 4.x). Note that default icons used in the plugin are glyphicons that are bundled only with Bootstrap 3.x. &ndash;&gt;
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+            &lt;!&ndash; piexif.min.js is needed for auto orienting image files OR when restoring exif data in resized images and when you
+                wish to resize images before upload. This must be loaded before fileinput.min.js &ndash;&gt;
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/piexif.min.js" type="text/javascript"></script>
+            &lt;!&ndash; sortable.min.js is only needed if you wish to sort / rearrange files in initial preview.
+                This must be loaded before fileinput.min.js &ndash;&gt;
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/sortable.min.js" type="text/javascript"></script>
+            &lt;!&ndash; purify.min.js is only needed if you wish to purify HTML content in your preview for
+                HTML files. This must be loaded before fileinput.min.js &ndash;&gt;
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/plugins/purify.min.js" type="text/javascript"></script>
+            &lt;!&ndash; popper.min.js below is needed if you use bootstrap 4.x (for popover and tooltips). You can also use the bootstrap js
+               3.3.x versions without popper.min.js. &ndash;&gt;
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            &lt;!&ndash; bootstrap.min.js below is needed if you wish to zoom and preview file content in a detail modal
+                dialog. bootstrap 4.x is supported. You can also use the bootstrap js 3.3.x versions. &ndash;&gt;
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            &lt;!&ndash; the main fileinput plugin file &ndash;&gt;
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/fileinput.min.js"></script>
+            &lt;!&ndash; following theme script is needed to use the Font Awesome 5.x theme (`fas`) &ndash;&gt;
+            < script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/themes/fas/theme.min.js"></script &ndash;&gt;
+            &lt;!&ndash; optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) &ndash;&gt;
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.1/js/locales/LANG.js"></script>-->
+
+
+
+</head>
+<body>
+
+<!--<div class="row" style="height: 500px">
+    <input id="file-Portrait1" type="file">
+</div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="jc-demo-box">
+
+                <!--<div class="page-header">
+                    <ul class="breadcrumb first">
+                        <li><a href="../index.html">Jcrop</a> <span class="divider">/</span></li>
+                        <li><a href="../index.html">Demos</a> <span class="divider">/</span></li>
+                        <li class="active">Hello World</li>
+                    </ul>
+                    <h1>Hello World</h1>
+                </div>-->
+
+
+                <!--<img id="target" src="picture/2eebfc9dd54f8c59.jpg" style="width: 500px" alt="[Jcrop Example]" >-->
+                <!--默认底图-->
+                    <img id="cut-img" src="picture/2eebfc9dd54f8c59.jpg" style="width: 500px; background-color: white" alt="[Jcrop Example]">
+                <!--文件上传控件-->
+                <input id="txt_file" type="file">
+
+
+                <!--<div class="description">
+                    <p>
+                        <b>This example demonstrates the default behavior of Jcrop.</b><br />
+                        Since no event handlers have been attached it only performs
+                        the cropping behavior.
+                    </p>
+                </div>-->
+
+                <!--<div class="tapmodo-footer">
+                    <a href="http://tapmodo.com" class="tapmodo-logo segment">tapmodo.com</a>
+                    <div class="segment"><b>&copy; 2008-2013 Tapmodo Interactive LLC</b><br />
+                        Jcrop is free software released under <a href="../MIT-LICENSE.txt">MIT License</a>
+                    </div>
+                </div>-->
+
+                <!--<div class="clearfix"></div>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    var tailorInfo = "";
+
+    /*文件上传相关代码*/
+    // JS的通用函数，用来初始化这个插件控件
+    //初始化fileinput
+    function FileInput() {
+        var oFile = new Object();
+
+        oFile.Init = function (ctrlName, uploadUrl) {
+            var control = $('#' + ctrlName);
+            //初始化上传控件的样式
+            control.fileinput({
+                language: 'zh', //设置语言
+                browseLabel: '选择',
+                browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+                browseClass: "btn btn-primary", //按钮样式
+                uploadUrl: uploadUrl, //上传的地址
+                allowedFileExtensions: ['jpg',  'png'],//接收的文件后缀
+                showUpload: true, //是否显示上传按钮
+                showCaption: false,//是否显示标题
+                showPreview: false,//隐藏预览
+                dropZoneEnabled: false,//是否显示拖拽区域
+                uploadAsync: true,//采用异步
+                autoReplace: true,
+                //minImageWidth: 50,
+                //minImageHeight: 50,
+                //maxImageWidth: 1000,
+                //maxImageHeight: 1000,
+                //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+                //minFileCount: 0,
+                maxFileCount: 1, //表示允许同时上传的最大文件个数
+                enctype: 'multipart/form-data',
+                validateInitialCount: true,
+                previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+                msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+                uploadExtraData: function () {
+                    return { "tailorInfo": tailorInfo }
+                }
+            });
+        }
+
+        return oFile;
+    };
+
+
+    //页面初始化
+    function PageInit() {
+        var jcorp = null;   //jcorp全局变量
+        var _this = this;
+        /*实例化一个fileinput*/
+        var fileInput = new FileInput();
+        // 应用通用函数，初始化文件上传 控件和地址
+        fileInput.Init("txt_file", "@Url.Action('UpLoadFile')");
+
+        /*控件对象*/
+        var input = $('#txt_file');
+
+        //图片上传完成后
+        input.on("fileuploaded", function (event, data, previewId, index) {
+            if (data.response.success) {
+                jcorp.destroy();
+
+                $('#cut-img').attr('src', data.response.newImage);//Data URI Scheme形式
+                //$('#cut-img').attr('src', data.response.newImage + "?t=" + Math.random());//加尾巴解决缓存问题
+            }
+            alert(data.response.message);
+        });
+
+        /*裁剪的js代码*/
+        //选择图片后触发
+        input.on('change', function (event, data, previewId, index) {
+            var img = $('#cut-img');
+            if (input[0].files && input[0].files[0]) {
+                var reader = new FileReader();
+                reader.readAsDataURL(input[0].files[0]);
+                reader.onload = function (e) {
+                    img.removeAttr('src');
+                    img.attr('src', e.target.result);
+                    //关键在这
+                    img.Jcrop({
+                        setSelect: [0, 0, 260, 290],
+                        handleSize: 10,
+                        aspectRatio: 1,//选框宽高比
+                        bgFade: false,
+                        bgColor: 'black',
+                        bgOpacity: 0.3,
+                        onSelect: updateCords   //选框选定时的事件，初始选定也算，每改变一下，生成新的json
+                    }, function () {
+                        jcorp = this;
+                    });
+                };
+                if (jcorp != undefined) {
+                    jcorp.destroy();//jcorpAPI，移除jcorp
+                }
+            }
+            function updateCords(obj) {
+                tailorInfo = JSON.stringify({
+                    "PictureWidth": $('.jcrop-holder').css('width'),    /*原始图片*/
+                    "PictureHeight": $('.jcrop-holder').css('height'),
+                    "CoordinateX": obj.x,                                   /*选框位置*/
+                    "CoordinateY": obj.y,
+                    "CoordinateWidth": obj.w,                           /*选框*/
+                    "CoordinateHeight": obj.h });
+                console.log(tailorInfo);    //控制台打印
+            }
+        });
+
+        //上传出现错误
+        input.on('fileuploaderror', function (event, data, msg) {
+            alert(msg);
+
+            //jcorp.destroy();
+            //$('#cut-img').attr('src', '/Content/defaultAvatar.jpg');
+            return false;
+        });
+
+        //移除图片
+        input.on('fileclear', function (event) {
+            console.log("fileclear");
+
+            jcorp.destroy();
+            $('#cut-img').attr('src', '/Content/defaultAvatar.jpg');
+        });
+    };
+
+    $(function () {
+        PageInit();
+    });
+
+
+
+
+   /* jQuery(function($) {
+        var jcropApi;
+        $('#cut-img').Jcrop({
+            // options
+            allowSelect: true,
+            // baseClass: 'jcrop',//默认
+            aspectRatio:1,
+            keySupport: true,
+            // trackDocument: false,
+        }, function () {
+            jcropApi = this;
+        });
+        //API
+        console.log(jcropApi.tellScaled())
+    })*/
+</script>
+
+</body>
+</html>

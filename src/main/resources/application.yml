@@ -1,0 +1,106 @@
+server:
+  #配置程序端口，默认为8080
+  port: 8080
+  tomcat:
+    # 配置Tomcat编码,默认为UTF-8
+    uri-encoding: UTF-8
+    # 配置最大线程数
+    max-threads: 1000
+
+
+spring:
+  #热部署
+  devtools:
+    remote:
+      restart:
+        enabled: true
+    restart:
+      additional-paths: src/main
+  thymeleaf:
+    cache: false
+  #DataScoure
+  datasource:
+    #########JDBC基本属性
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #&useAffectedRows=true：update返回值行影响数目，返回Rows-Affect数目
+    url: jdbc:mysql://localhost:3306/sstore?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: zn
+    password: 123456
+    ##########druid相关配置
+    druid:
+      #配置初始化大小/最小/最大
+      initial-size: 1
+      max-active: 20
+      min-idle: 1
+      max-wait: 60000
+      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: SELECT 'x'
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 60000
+      #一个连接在池中最小生存的时间
+      min-evictable-idle-time-millis: 300000
+      #监控统计拦截的filters,内置filter
+      filters: stat,wall
+  mail:
+    host: smtp.163.com #发送邮件服务器
+    username: flamse@163.com #发送邮件的邮箱地址
+    password: flxsham163 #客户端授权码，不是邮箱密码,网易的是自己设置的
+    properties.mail.smtp.port: 994 #465或者994
+    from: flamse@163.com # 发送邮件的地址，和上面username一致可以任意
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+    properties.mail.smtp.ssl.enable: true
+    default-encoding: utf-8
+
+
+#mybatis映射
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  #type-aliases-package: com.top.sstore.entity
+
+
+#pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
+
+#debug: true
+
+status:
+  #用户账号状态码
+  user:
+    #未激活
+    inactive: 143
+    #已激活
+    active: 100
+
+  #商品状态
+  service:
+    #在售
+    instock: 200
+    #已下架
+    outstock: 210
+
+  #订单状态
+  order:
+    #已下单，未付款
+    pushOrder: 301
+    #已付款，未发货
+    payOrder: 304
+    #已发货，未签收
+    distributeOrder: 307
+    #已签收，完成订单
+    completeOrder: 309
+    #用户取消订单
+    cancelOrder: 399
+
+ipAddress:
+  tomcat: localhost:8080

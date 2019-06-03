@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片裁剪demo</title>
+</head>
+<body>
+
+@{
+ViewBag.Title = "文件上传";
+}
+
+<!--JCrop插件-->
+<link href="@Url.Content("~/Content/Jcrop/jquery.Jcrop.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap-fileinput/fileinput.css")" rel="stylesheet" />
+
+<br />
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">头像</button>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">图片上传</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6" style="width: 500px;">
+                        <!--通过图片标签进行裁剪-->
+                        <img id="cut-img" class="thumbnail" src="~/Content/defaultAvatar.jpg"><br />
+                    </div>
+                    <div class="col-md-5">
+                        <!--文件上传元素-->
+                        <input type="file" name="txt_file" id="txt_file" multiple class="file-loading" /><br />
+                        <h4>图片说明：</h4>
+                        <p>1、图片格式需要jpg、gif、png为后缀名.</p>
+                        <p>2、图片可以在线裁剪大小,以裁剪后为最终结果.</p>
+                        <p>3、图片上传完毕即可关闭窗口.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+<script src="@Url.Content("~/Scripts/Jcrop/jquery.Jcrop.js")"></script>
+<script src="@Url.Content("~/Scripts/bootstrap-fileinput/fileinput.js")"></script>
+<script src="@Url.Content("~/Scripts/bootstrap-fileinput/zh.js")"></script>
+<script type="text/javascript">
+
+//http://code.ciaoca.com/jquery/jcrop/
+//http://code.ciaoca.com/jquery/jcrop/demo/animation
+//http://plugins.krajee.com/file-input
+//http://plugins.krajee.com/file-advanced-usage-demo#advanced-example-5
+
+var tailorInfo = "";
+
+/*文件上传相关代码*/
+//初始化fileinput
+function FileInput() {
+    var oFile = new Object();
+    //js通用函数，初始化插件控件
+    oFile.Init = function (ctrlName, uploadUrl) {
+        var control = $('#' + ctrlName);
+        //初始化上传控件的样式
+        control.fileinput({
+            language: 'zh', //设置语言
+            browseLabel: '选择',
+            browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+            browseClass: "btn btn-primary", //按钮样式
+            uploadUrl: uploadUrl, //上传的地址
+            allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
+            showUpload: true, //是否显示上传按钮
+            showCaption: false,//是否显示标题
+            showPreview: false,//隐藏预览
+            dropZoneEnabled: false,//是否显示拖拽区域
+            uploadAsync: true,//采用异步
+            autoReplace: true,
+            //minImageWidth: 50,
+            //minImageHeight: 50,
+            //maxImageWidth: 1000,
+            //maxImageHeight: 1000,
+            //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+            //minFileCount: 0,
+            maxFileCount: 1, //表示允许同时上传的最大文件个数
+            enctype: 'multipart/form-data',
+            validateInitialCount: true,
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！",
+            uploadExtraData: function () {
+                return { "tailorInfo": tailorInfo }
+            }
+        });
+    }
+
+    return oFile;
+};
+
+function PageInit() {
+    var jcorp = null;
+    var _this = this;
+    /*实例化一个fileinput*/
+    var fileInput = new FileInput();
+    fileInput.Init("txt_file", "@Url.Action('UpLoadFile')");
+    var input = $('#txt_file');
+
+    //图片上传完成后
+    input.on("fileuploaded", function (event, data, previewId, index) {
+        if (data.response.success) {
+            jcorp.destroy();
+
+            $('#cut-img').attr('src', data.response.newImage);//Data URI Scheme形式
+            //$('#cut-img').attr('src', data.response.newImage + "?t=" + Math.random());//加尾巴解决缓存问题
+        }
+        alert(data.response.message);
+    });
+
+    /*裁剪的js代码*/
+    //选择图片后触发
+    input.on('change', function (event, data, previewId, index) {
+        var img = $('#cut-img');
+        if (input[0].files && input[0].files[0]) {
+            var reader = new FileReader();
+            reader.readAsDataURL(input[0].files[0]);
+            reader.onload = function (e) {
+                img.removeAttr('src');
+                img.attr('src', e.target.result);
+                img.Jcrop({
+                    setSelect: [0, 0, 260, 290],
+                    handleSize: 10,
+                    aspectRatio: 1,//选框宽高比
+                    bgFade: false,
+                    bgColor: 'black',
+                    bgOpacity: 0.3,
+                    onSelect: updateCords
+                }, function () {
+                    jcorp = this;
+                });
+            };
+            if (jcorp != undefined) {
+                jcorp.destroy();
+            }
+        }
+        function updateCords(obj) {
+            tailorInfo = JSON.stringify({ "PictureWidth": $('.jcrop-holder').css('width'), "PictureHeight": $('.jcrop-holder').css('height'), "CoordinateX": obj.x, "CoordinateY": obj.y, "CoordinateWidth": obj.w, "CoordinateHeight": obj.h });
+            console.log(tailorInfo);
+        }
+    });
+
+    //上传出现错误
+    input.on('fileuploaderror', function (event, data, msg) {
+        alert(msg);
+
+        //jcorp.destroy();
+        //$('#cut-img').attr('src', '/Content/defaultAvatar.jpg');
+        return false;
+    });
+
+    //移除图片
+    input.on('fileclear', function (event) {
+        console.log("fileclear");
+
+        jcorp.destroy();
+        $('#cut-img').attr('src', '/Content/defaultAvatar.jpg');
+    });
+};
+
+$(function () {
+    PageInit();
+});
+</script>
+}
+
+前端页面代码
+
+</body>
+</html>

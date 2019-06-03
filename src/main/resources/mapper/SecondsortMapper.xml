@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.top.sstore.dao.SecondsortMapper">
+  <resultMap id="BaseResultMap" type="com.top.sstore.pojo.Secondsort">
+    <id column="second_id" jdbcType="INTEGER" property="secondId" />
+    <result column="second_name" jdbcType="VARCHAR" property="secondName" />
+    <result column="first_id" jdbcType="INTEGER" property="firstId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    second_id, second_name, first_id
+  </sql>
+  <select id="selectByExample" parameterType="com.top.sstore.pojo.SecondsortExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_secondsort
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_secondsort
+    where second_id = #{secondId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_secondsort
+    where second_id = #{secondId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.top.sstore.pojo.SecondsortExample">
+    delete from tbl_secondsort
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.top.sstore.pojo.Secondsort">
+    insert into tbl_secondsort (second_id, second_name, first_id
+      )
+    values (#{secondId,jdbcType=INTEGER}, #{secondName,jdbcType=VARCHAR}, #{firstId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.top.sstore.pojo.Secondsort">
+    insert into tbl_secondsort
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="secondId != null">
+        second_id,
+      </if>
+      <if test="secondName != null">
+        second_name,
+      </if>
+      <if test="firstId != null">
+        first_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="secondId != null">
+        #{secondId,jdbcType=INTEGER},
+      </if>
+      <if test="secondName != null">
+        #{secondName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstId != null">
+        #{firstId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.top.sstore.pojo.SecondsortExample" resultType="java.lang.Long">
+    select count(*) from tbl_secondsort
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tbl_secondsort
+    <set>
+      <if test="record.secondId != null">
+        second_id = #{record.secondId,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondName != null">
+        second_name = #{record.secondName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firstId != null">
+        first_id = #{record.firstId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tbl_secondsort
+    set second_id = #{record.secondId,jdbcType=INTEGER},
+      second_name = #{record.secondName,jdbcType=VARCHAR},
+      first_id = #{record.firstId,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.top.sstore.pojo.Secondsort">
+    update tbl_secondsort
+    <set>
+      <if test="secondName != null">
+        second_name = #{secondName,jdbcType=VARCHAR},
+      </if>
+      <if test="firstId != null">
+        first_id = #{firstId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where second_id = #{secondId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.top.sstore.pojo.Secondsort">
+    update tbl_secondsort
+    set second_name = #{secondName,jdbcType=VARCHAR},
+      first_id = #{firstId,jdbcType=INTEGER}
+    where second_id = #{secondId,jdbcType=INTEGER}
+  </update>
+</mapper>

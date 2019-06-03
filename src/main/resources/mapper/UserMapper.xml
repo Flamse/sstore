@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.top.sstore.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.top.sstore.pojo.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_password" jdbcType="CHAR" property="userPassword" />
+    <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
+    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="user_status" jdbcType="INTEGER" property="userStatus" />
+    <result column="user_cdk" jdbcType="VARCHAR" property="userCdk" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    user_id, user_name, user_password, user_email, user_phone, create_time, user_status, 
+    user_cdk
+  </sql>
+  <select id="selectByExample" parameterType="com.top.sstore.pojo.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tbl_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.top.sstore.pojo.UserExample">
+    delete from tbl_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.top.sstore.pojo.User">
+    insert into tbl_user (user_id, user_name, user_password, 
+      user_email, user_phone, create_time, 
+      user_status, user_cdk)
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=CHAR}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{userStatus,jdbcType=INTEGER}, #{userCdk,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.top.sstore.pojo.User">
+    insert into tbl_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userPassword != null">
+        user_password,
+      </if>
+      <if test="userEmail != null">
+        user_email,
+      </if>
+      <if test="userPhone != null">
+        user_phone,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="userStatus != null">
+        user_status,
+      </if>
+      <if test="userCdk != null">
+        user_cdk,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        #{userPassword,jdbcType=CHAR},
+      </if>
+      <if test="userEmail != null">
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userStatus != null">
+        #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userCdk != null">
+        #{userCdk,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.top.sstore.pojo.UserExample" resultType="java.lang.Long">
+    select count(*) from tbl_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tbl_user
+    <set>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPassword != null">
+        user_password = #{record.userPassword,jdbcType=CHAR},
+      </if>
+      <if test="record.userEmail != null">
+        user_email = #{record.userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userPhone != null">
+        user_phone = #{record.userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userStatus != null">
+        user_status = #{record.userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.userCdk != null">
+        user_cdk = #{record.userCdk,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tbl_user
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_password = #{record.userPassword,jdbcType=CHAR},
+      user_email = #{record.userEmail,jdbcType=VARCHAR},
+      user_phone = #{record.userPhone,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      user_status = #{record.userStatus,jdbcType=INTEGER},
+      user_cdk = #{record.userCdk,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.top.sstore.pojo.User">
+    update tbl_user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPassword != null">
+        user_password = #{userPassword,jdbcType=CHAR},
+      </if>
+      <if test="userEmail != null">
+        user_email = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhone != null">
+        user_phone = #{userPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userStatus != null">
+        user_status = #{userStatus,jdbcType=INTEGER},
+      </if>
+      <if test="userCdk != null">
+        user_cdk = #{userCdk,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.top.sstore.pojo.User">
+    update tbl_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=CHAR},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      user_status = #{userStatus,jdbcType=INTEGER},
+      user_cdk = #{userCdk,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

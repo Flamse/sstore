@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="Jcrop/css/jquery.Jcrop.css">
+    <!--<link rel="stylesheet" href="bootstrap-fileinput/css/fileinput.css">-->
+
+    <!--Jcrop依赖于jquery，要先引入jquery-->
+    <script src="jquery-3.4.1.js"></script>
+    <script src="Jcrop/js/jquery.Jcrop.js"></script>
+    <!--<script src="bootstrap-fileinput/js/fileinput.js">-->
+
+
+    <!--中文-->
+    <script src="bootstrap-fileinput/js/locales/zh.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="jc-demo-box">
+
+                <!--<div class="page-header">
+                    <ul class="breadcrumb first">
+                        <li><a href="../index.html">Jcrop</a> <span class="divider">/</span></li>
+                        <li><a href="../index.html">Demos</a> <span class="divider">/</span></li>
+                        <li class="active">Hello World</li>
+                    </ul>
+                    <h1>Hello World</h1>
+                </div>-->
+
+
+                <img id="cut-img" src="picture/2eebfc9dd54f8c59.jpg" style="width: 500px"  >
+                <!--默认底图-->
+                <!--<img id="cut-img" src="picture/2eebfc9dd54f8c59.jpg" style="width: 500px" >-->
+                <!--<input id="txt_file" type="file">-->
+
+
+                <!--<div class="description">
+                    <p>
+                        <b>This example demonstrates the default behavior of Jcrop.</b><br />
+                        Since no event handlers have been attached it only performs
+                        the cropping behavior.
+                    </p>
+                </div>-->
+
+                <!--<div class="tapmodo-footer">-->
+                    <!--<a href="http://tapmodo.com" class="tapmodo-logo segment">tapmodo.com</a>-->
+                    <!--<div class="segment"><b>&copy; 2008-2013 Tapmodo Interactive LLC</b><br />-->
+                        <!--Jcrop is free software released under <a href="../MIT-LICENSE.txt">MIT License</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+
+    jQuery(function($) {
+        var jcropApi;
+        $('#cut-img').Jcrop({
+            // options
+            allowSelect: true,
+            // baseClass: 'jcrop',//默认
+            aspectRatio:1,
+            keySupport: true,
+            // trackDocument: false,
+        }, function () {
+            jcropApi = this;
+        });
+        //API
+        console.log(jcropApi.tellScaled())
+    })
+</script>
+</body>
+</html>
