@@ -23,12 +23,11 @@ public class IMailServiceTests {
      */
     @Test
     public void sendSimpleMail() {
-        mailService.sendSimpleMail("1048605630@qq.com","神兽保佑无BUG","http://baidu.com");
+        mailService.sendSimpleMail("1048605630@qq.com","神兽保佑无BUG","看我");
     }
 
-    //不会用。。。
     @Test
     public void sendHtmlMail() {
-        mailService.sendHtmlMail("f1048605630@qq.com","神兽保佑无BUG","<h1>呵呵哒");
+        mailService.sendHtmlMail("1048605630@qq.com","神兽保佑无BUG","<a href='http://www.baidu.com'>check me</a>");
     }
 }

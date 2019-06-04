@@ -60,11 +60,11 @@
             <scope>test</scope>
         </dependency>
         <!--Generating Your Own Metadata by Using the Annotation Processor-->
-        <dependency>
+      <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
-        </dependency>
+        </dependency>-->
 
         <!--工具-->
 
@@ -97,15 +97,16 @@
         </dependency>
 
         <!--Thymeleaf模板引擎-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-        <!--</dependency>-->
-        <dependency>
+<!--        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>-->
+
+     <!--   <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>1.7.26</version>
-        </dependency>
+        </dependency>-->
 
 
     </dependencies>
@@ -178,7 +179,6 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
 
 
 </project>

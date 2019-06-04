@@ -20,7 +20,7 @@ public interface IUserService {
      * @Return 返回影响行的数目
      * @Date 2019/5/29/029 11:17
      */
-    public Integer userLogin();
+    public User userLogin(User user);
 
     //用户登录注册需要的检查
     public void checkUsername();
@@ -42,7 +42,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public void showUser();
+    public User showUser();
     
     /**
      * @Author zh
@@ -58,7 +58,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public void updateStatus(User user);
+    public User updateStatus(User user);
 
     /**
      * @Author zh

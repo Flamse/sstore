@@ -2,11 +2,12 @@ server:
   #配置程序端口，默认为8080
   port: 8080
   tomcat:
-    # 配置Tomcat编码,默认为UTF-8
-    uri-encoding: UTF-8
+#    accesslog:
+#      enabled: true
+  # 配置Tomcat编码,默认为UTF-8
+    #uri-encoding: UTF-8
     # 配置最大线程数
-    max-threads: 1000
-
+    #max-threads: 1000
 
 spring:
   #热部署
@@ -23,7 +24,7 @@ spring:
     #########JDBC基本属性
     driver-class-name: com.mysql.cj.jdbc.Driver
     #&useAffectedRows=true：update返回值行影响数目，返回Rows-Affect数目
-    url: jdbc:mysql://10.102.4.92:3306/sstore?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://10.102.4.92:3306/sstore?useSsl=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
     password: 123456
     ##########druid相关配置
@@ -103,4 +104,4 @@ status:
     cancelOrder: 399
 
 ipAddress:
-  tomcat: localhost:8080
+  tomcat: 10.102.4.142:8080
