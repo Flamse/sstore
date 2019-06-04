@@ -6,7 +6,6 @@
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="user_password" jdbcType="CHAR" property="userPassword" />
     <result column="user_email" jdbcType="VARCHAR" property="userEmail" />
-    <result column="user_phone" jdbcType="VARCHAR" property="userPhone" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="user_status" jdbcType="INTEGER" property="userStatus" />
     <result column="user_cdk" jdbcType="VARCHAR" property="userCdk" />
@@ -70,8 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    user_id, user_name, user_password, user_email, user_phone, create_time, user_status, 
-    user_cdk
+    user_id, user_name, user_password, user_email, create_time, user_status, user_cdk
   </sql>
   <select id="selectByExample" parameterType="com.top.sstore.pojo.UserExample" resultMap="BaseResultMap">
     select
@@ -105,11 +103,11 @@
   </delete>
   <insert id="insert" parameterType="com.top.sstore.pojo.User">
     insert into tbl_user (user_id, user_name, user_password, 
-      user_email, user_phone, create_time, 
-      user_status, user_cdk)
+      user_email, create_time, user_status, 
+      user_cdk)
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=CHAR}, 
-      #{userEmail,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{userStatus,jdbcType=INTEGER}, #{userCdk,jdbcType=VARCHAR})
+      #{userEmail,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{userStatus,jdbcType=INTEGER}, 
+      #{userCdk,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.top.sstore.pojo.User">
     insert into tbl_user
@@ -125,9 +123,6 @@
       </if>
       <if test="userEmail != null">
         user_email,
-      </if>
-      <if test="userPhone != null">
-        user_phone,
       </if>
       <if test="createTime != null">
         create_time,
@@ -151,9 +146,6 @@
       </if>
       <if test="userEmail != null">
         #{userEmail,jdbcType=VARCHAR},
-      </if>
-      <if test="userPhone != null">
-        #{userPhone,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -187,9 +179,6 @@
       <if test="record.userEmail != null">
         user_email = #{record.userEmail,jdbcType=VARCHAR},
       </if>
-      <if test="record.userPhone != null">
-        user_phone = #{record.userPhone,jdbcType=VARCHAR},
-      </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
@@ -210,7 +199,6 @@
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_password = #{record.userPassword,jdbcType=CHAR},
       user_email = #{record.userEmail,jdbcType=VARCHAR},
-      user_phone = #{record.userPhone,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       user_status = #{record.userStatus,jdbcType=INTEGER},
       user_cdk = #{record.userCdk,jdbcType=VARCHAR}
@@ -230,9 +218,6 @@
       <if test="userEmail != null">
         user_email = #{userEmail,jdbcType=VARCHAR},
       </if>
-      <if test="userPhone != null">
-        user_phone = #{userPhone,jdbcType=VARCHAR},
-      </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
@@ -250,7 +235,6 @@
     set user_name = #{userName,jdbcType=VARCHAR},
       user_password = #{userPassword,jdbcType=CHAR},
       user_email = #{userEmail,jdbcType=VARCHAR},
-      user_phone = #{userPhone,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       user_status = #{userStatus,jdbcType=INTEGER},
       user_cdk = #{userCdk,jdbcType=VARCHAR}

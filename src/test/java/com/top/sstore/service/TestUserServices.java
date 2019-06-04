@@ -17,17 +17,22 @@ public class TestUserServices {
     @Test
     public void login(){
         User user = new User();
-        user.setUserName("张鸿");
-        user.setUserPassword("123456");
-        user.setUserEmail("1048605630@qq.com");
-        user.setUserPhone("15270476656");
-//        System.out.println(UUIDUtils.getUUID()+user.toString());
+        user.setUserName("张登杰");
+        user.setUserPassword("456789");
+        user.setUserEmail("1308140539@qq.com");
+//        user.setUserPhone("15270476656");
+//        String a = userService.userRegistration(user);
         userService.userRegistration(user);
+//        System.out.println();
     }
 
     @Test
-    public void finishLogin(){
-
+    public void finishLogin(){  //激活
+        User user = new User();
+        user.setUserName("张登杰");
+        user.setUserCdk("eb85c1ac24bb4c4ca3425127ae88eaed3e99d24537a84873b2a82e5ac2e7744b");
+        userService.updateStatus(user);
+        //测试成功
     }
 
 }

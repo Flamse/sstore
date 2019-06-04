@@ -11,8 +11,6 @@ public class User {
 
     private String userEmail;
 
-    private String userPhone;
-
     private Date createTime;
 
     private Integer userStatus;
@@ -49,14 +47,6 @@ public class User {
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail == null ? null : userEmail.trim();
-    }
-
-    public String getUserPhone() {
-        return userPhone;
-    }
-
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone == null ? null : userPhone.trim();
     }
 
     public Date getCreateTime() {

@@ -58,7 +58,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public void updateState();
+    public void updateStatus(User user);
 
     /**
      * @Author zh

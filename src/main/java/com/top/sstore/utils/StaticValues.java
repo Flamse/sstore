@@ -1,77 +1,79 @@
 package com.top.sstore.utils;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class StaticValues {
     @Value("${ipAddress.tomcat}")
-    private static String tomcatIP;
+    private String tomcatIP;
 
     //状态码
     @Value("${status.user.inactive}")
-    private static Integer userInactive;
+    private Integer userInactive;
 
     @Value("${status.user.active}")
-    private static Integer userActive;
+    private Integer userActive;
 
     @Value("${status.service.instock}")
-    private static Integer serviceInstock;
+    private Integer serviceInstock;
 
     @Value("${status.service.outstock}")
-    private static Integer serviceOutstock;
+    private Integer serviceOutstock;
 
     @Value("${status.order.pushOrder}")
-    private static Integer orderPushOrder;
+    private Integer orderPushOrder;
 
     @Value("${status.order.payOrder}")
-    private static Integer orderPayOrder;
+    private Integer orderPayOrder;
 
     @Value("${status.order.distributeOrder}")
-    private static Integer orderDistributeOrder;
+    private Integer orderDistributeOrder;
 
     @Value("${status.order.completeOrder}")
-    private static Integer ordercCompleteOrder;
+    private Integer orderCompleteOrder;
 
     @Value("${status.order.cancelOrder}")
-    private static Integer orderCancelOrder;
+    private Integer orderCancelOrder;
 
 
-    public static String getTomcatIP() {
+    public String getTomcatIP() {
         return tomcatIP;
     }
 
-    public static Integer getUserInactive() {
+    public Integer getUserInactive() {
         return userInactive;
     }
 
-    public static Integer getUserActive() {
+    public Integer getUserActive() {
         return userActive;
     }
 
-    public static Integer getServiceInstock() {
+    public Integer getServiceInstock() {
         return serviceInstock;
     }
 
-    public static Integer getServiceOutstock() {
+    public Integer getServiceOutstock() {
         return serviceOutstock;
     }
 
-    public static Integer getOrderPushOrder() {
+    public Integer getOrderPushOrder() {
         return orderPushOrder;
     }
 
-    public static Integer getOrderPayOrder() {
+    public Integer getOrderPayOrder() {
         return orderPayOrder;
     }
 
-    public static Integer getOrderDistributeOrder() {
+    public Integer getOrderDistributeOrder() {
         return orderDistributeOrder;
     }
 
-    public static Integer getOrdercCompleteOrder() {
-        return ordercCompleteOrder;
+    public Integer getOrdercCompleteOrder() {
+        return orderCompleteOrder;
     }
 
-    public static Integer getOrderCancelOrder() {
+    public Integer getOrderCancelOrder() {
         return orderCancelOrder;
     }
 }

@@ -61,8 +61,8 @@ public class TestServiceLabelMapper {
     @Test
     public void TestExample(){
         ServiceLabel serviceLabel = new ServiceLabel();
-        serviceLabel.setSalerId(123);
-        serviceLabel.setLabelName("ttt");
+        serviceLabel.setSalerId(0);
+        serviceLabel.setLabelName("台式电脑");
         int a = serviceLabelMapper.insert(serviceLabel);
         //插入成功，返回1
         System.out.println("=========================:"+a);
