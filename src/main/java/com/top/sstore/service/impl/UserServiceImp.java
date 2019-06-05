@@ -17,6 +17,7 @@ import java.util.List;
 
 @Service
 public class UserServiceImp implements IUserService {
+    /*日志*/
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private UserMapper userMapper;
@@ -44,8 +45,8 @@ public class UserServiceImp implements IUserService {
             /*账号重复校验*/
             UserExample example = new UserExample();
             //查找用户名、邮箱和手机号是否重复：邮箱、用户名唯一性
-            example.or().andUserNameEqualTo(user.getUserName());    //
-            example.or().andUserEmailEqualTo(user.getUserEmail());  //
+            example.or().andUserNameEqualTo(user.getUserName()).andUserEmailEqualTo(user.getUserEmail());
+//            example.or().andUserEmailEqualTo(user.getUserEmail());
 //            example.or().andUserPhoneEqualTo(user.getUserPhone());
             long count = userMapper.countByExample(example);
             if(count == 0){ //账号不重复
@@ -68,10 +69,10 @@ public class UserServiceImp implements IUserService {
                     logger.info("send email unsuccess!!");
                 }
             }else{
-                logger.info("用户已存在！！！");
+                logger.warn("用户已存在！！！");
             }
         }else {
-            logger.info("用户信息不全");
+            logger.error("用户信息不全");
         }
     }
 
@@ -86,8 +87,8 @@ public class UserServiceImp implements IUserService {
         if ((user.getUserName() != null || user.getUserEmail() != null) && user.getUserPassword() != null){
             if(user.getUserName() != null && user.getUserEmail() == null) { //使用用户名登录
                 UserExample example = new UserExample();
-                example.createCriteria().andUserNameEqualTo(user.getUserName());
-                example.createCriteria().andUserPasswordEqualTo(user.getUserPassword());
+                example.createCriteria().andUserNameEqualTo(user.getUserName()).andUserPasswordEqualTo(user.getUserPassword());
+//                example.createCriteria().andUserPasswordEqualTo(user.getUserPassword());
                 List<User> users = userMapper.selectByExample(example);
                 if (users.size() == 1) {
                     logger.info("登录成功！");
@@ -97,20 +98,19 @@ public class UserServiceImp implements IUserService {
                 }
             }else if(user.getUserName() == null && user.getUserEmail() != null){    //使用邮箱登录
                 UserExample example = new UserExample();
-                example.createCriteria().andUserEmailEqualTo(user.getUserEmail());
-                example.createCriteria().andUserPasswordEqualTo(user.getUserPassword());
+                example.createCriteria().andUserEmailEqualTo(user.getUserEmail()).andUserPasswordEqualTo(user.getUserPassword());
                 List<User> users = userMapper.selectByExample(example);
                 if (users.size() == 1) {
                     logger.info("登录成功！");
                     return users.get(0);    //貌似存在问题
                 } else {
-                    logger.info("用户名或密码错误！！");
+                    logger.warn("用户名或密码错误！！");
                 }
             }else {
-                logger.info("！！！！！！！！！系统错误！！！！！！！！！！！"); //用户名和邮箱同时存在
+                logger.error("！！！！！！！！！系统错误！！！！！！！！！！！"); //用户名和邮箱同时存在
             }
         }else {
-            logger.info("用户名或密码不能为空！！");
+            logger.warn("用户名或密码不能为空！！");
         }
         return null;//登录失败
     }
@@ -156,8 +156,7 @@ public class UserServiceImp implements IUserService {
         UserExample example = new UserExample();
         if (user.getUserName() != null && user.getUserCdk() != null){
             //and查询
-            example.createCriteria().andUserNameEqualTo(user.getUserName());
-            example.createCriteria().andUserCdkEqualTo(user.getUserCdk());
+            example.createCriteria().andUserNameEqualTo(user.getUserName()).andUserCdkEqualTo(user.getUserCdk());
             long count = userMapper.countByExample(example);
 
             if(count == 1){ //存在用户名为***，CDK为***的用户

@@ -2,12 +2,16 @@ server:
   #配置程序端口，默认为8080
   port: 8080
   tomcat:
-#    accesslog:
-#      enabled: true
+    accesslog:
+      enabled: true
   # 配置Tomcat编码,默认为UTF-8
-    #uri-encoding: UTF-8
+    uri-encoding: UTF-8
     # 配置最大线程数
-    #max-threads: 1000
+    max-threads: 1000
+
+#日志级别
+#logging:
+#  level: 包名=trace info debug warn error fatal off
 
 spring:
   #热部署
@@ -19,14 +23,17 @@ spring:
       additional-paths: src/main
   thymeleaf:
     cache: false
+#  配置AOP
+  aop:
+    auto: true
   #DataScoure
   datasource:
     #########JDBC基本属性
     driver-class-name: com.mysql.cj.jdbc.Driver
     #&useAffectedRows=true：update返回值行影响数目，返回Rows-Affect数目
-    url: jdbc:mysql://10.102.4.92:3306/sstore?useSsl=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/sstore?useSsl=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     username: root
-    password: 123456
+    password: 15270476656
     ##########druid相关配置
     druid:
       #配置初始化大小/最小/最大
@@ -47,6 +54,7 @@ spring:
       min-evictable-idle-time-millis: 300000
       #监控统计拦截的filters,内置filter
       filters: stat,wall
+#  邮件setting
   mail:
     host: smtp.163.com #发送邮件服务器
     username: flamse@163.com #发送邮件的邮箱地址
@@ -105,3 +113,4 @@ status:
 
 ipAddress:
   tomcat: 10.102.4.142:8080
+
