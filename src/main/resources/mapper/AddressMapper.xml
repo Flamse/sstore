@@ -7,7 +7,7 @@
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="address_phone" jdbcType="CHAR" property="addressPhone" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
-    <result column="adress_status" jdbcType="INTEGER" property="adressStatus" />
+    <result column="address_status" jdbcType="INTEGER" property="addressStatus" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    address_id, addressee, address, address_phone, user_id, adress_status
+    address_id, addressee, address, address_phone, user_id, address_status
   </sql>
   <select id="selectByExample" parameterType="com.top.sstore.pojo.AddressExample" resultMap="BaseResultMap">
     select
@@ -102,10 +102,10 @@
   </delete>
   <insert id="insert" parameterType="com.top.sstore.pojo.Address">
     insert into tbl_address (address_id, addressee, address, 
-      address_phone, user_id, adress_status
+      address_phone, user_id, address_status
       )
     values (#{addressId,jdbcType=INTEGER}, #{addressee,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{addressPhone,jdbcType=CHAR}, #{userId,jdbcType=INTEGER}, #{adressStatus,jdbcType=INTEGER}
+      #{addressPhone,jdbcType=CHAR}, #{userId,jdbcType=INTEGER}, #{addressStatus,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.top.sstore.pojo.Address">
@@ -126,8 +126,8 @@
       <if test="userId != null">
         user_id,
       </if>
-      <if test="adressStatus != null">
-        adress_status,
+      <if test="addressStatus != null">
+        address_status,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -146,8 +146,8 @@
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>
-      <if test="adressStatus != null">
-        #{adressStatus,jdbcType=INTEGER},
+      <if test="addressStatus != null">
+        #{addressStatus,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -175,8 +175,8 @@
       <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.adressStatus != null">
-        adress_status = #{record.adressStatus,jdbcType=INTEGER},
+      <if test="record.addressStatus != null">
+        address_status = #{record.addressStatus,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -190,7 +190,7 @@
       address = #{record.address,jdbcType=VARCHAR},
       address_phone = #{record.addressPhone,jdbcType=CHAR},
       user_id = #{record.userId,jdbcType=INTEGER},
-      adress_status = #{record.adressStatus,jdbcType=INTEGER}
+      address_status = #{record.addressStatus,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -210,8 +210,8 @@
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="adressStatus != null">
-        adress_status = #{adressStatus,jdbcType=INTEGER},
+      <if test="addressStatus != null">
+        address_status = #{addressStatus,jdbcType=INTEGER},
       </if>
     </set>
     where address_id = #{addressId,jdbcType=INTEGER}
@@ -222,7 +222,7 @@
       address = #{address,jdbcType=VARCHAR},
       address_phone = #{addressPhone,jdbcType=CHAR},
       user_id = #{userId,jdbcType=INTEGER},
-      adress_status = #{adressStatus,jdbcType=INTEGER}
+      address_status = #{addressStatus,jdbcType=INTEGER}
     where address_id = #{addressId,jdbcType=INTEGER}
   </update>
 </mapper>

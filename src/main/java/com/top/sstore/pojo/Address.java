@@ -11,7 +11,7 @@ public class Address {
 
     private Integer userId;
 
-    private Integer adressStatus;
+    private Integer addressStatus;
 
     public Integer getAddressId() {
         return addressId;
@@ -53,11 +53,11 @@ public class Address {
         this.userId = userId;
     }
 
-    public Integer getAdressStatus() {
-        return adressStatus;
+    public Integer getAddressStatus() {
+        return addressStatus;
     }
 
-    public void setAdressStatus(Integer adressStatus) {
-        this.adressStatus = adressStatus;
+    public void setAddressStatus(Integer addressStatus) {
+        this.addressStatus = addressStatus;
     }
 }

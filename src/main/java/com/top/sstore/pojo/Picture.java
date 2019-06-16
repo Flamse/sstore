@@ -7,6 +7,8 @@ public class Picture {
 
     private Integer servId;
 
+    private Integer pictureType;
+
     public Integer getPictureId() {
         return pictureId;
     }
@@ -29,5 +31,13 @@ public class Picture {
 
     public void setServId(Integer servId) {
         this.servId = servId;
+    }
+
+    public Integer getPictureType() {
+        return pictureType;
+    }
+
+    public void setPictureType(Integer pictureType) {
+        this.pictureType = pictureType;
     }
 }

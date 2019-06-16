@@ -4,12 +4,12 @@
   <resultMap id="BaseResultMap" type="com.top.sstore.pojo.Service">
     <id column="serv_id" jdbcType="INTEGER" property="servId" />
     <result column="price" jdbcType="DECIMAL" property="price" />
-    <result column="describe" jdbcType="VARCHAR" property="describe" />
+    <result column="serv_describe" jdbcType="VARCHAR" property="servDescribe" />
     <result column="serv_volume" jdbcType="INTEGER" property="servVolume" />
     <result column="third_id" jdbcType="INTEGER" property="thirdId" />
     <result column="serv_createtime" jdbcType="TIMESTAMP" property="servCreatetime" />
     <result column="serv_status" jdbcType="INTEGER" property="servStatus" />
-    <result column="label_id" jdbcType="INTEGER" property="labelId" />
+    <result column="label_id" jdbcType="VARCHAR" property="labelId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    serv_id, price, describe, serv_volume, third_id, serv_createtime, serv_status, label_id
+    serv_id, price, serv_describe, serv_volume, third_id, serv_createtime, serv_status, 
+    label_id
   </sql>
   <select id="selectByExample" parameterType="com.top.sstore.pojo.ServiceExample" resultMap="BaseResultMap">
     select
@@ -103,12 +104,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.top.sstore.pojo.Service">
-    insert into tbl_service (serv_id, price, describe, 
+    insert into tbl_service (serv_id, price, serv_describe, 
       serv_volume, third_id, serv_createtime, 
       serv_status, label_id)
-    values (#{servId,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{describe,jdbcType=VARCHAR}, 
+    values (#{servId,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, #{servDescribe,jdbcType=VARCHAR}, 
       #{servVolume,jdbcType=INTEGER}, #{thirdId,jdbcType=INTEGER}, #{servCreatetime,jdbcType=TIMESTAMP}, 
-      #{servStatus,jdbcType=INTEGER}, #{labelId,jdbcType=INTEGER})
+      #{servStatus,jdbcType=INTEGER}, #{labelId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.top.sstore.pojo.Service">
     insert into tbl_service
@@ -119,8 +120,8 @@
       <if test="price != null">
         price,
       </if>
-      <if test="describe != null">
-        describe,
+      <if test="servDescribe != null">
+        serv_describe,
       </if>
       <if test="servVolume != null">
         serv_volume,
@@ -145,8 +146,8 @@
       <if test="price != null">
         #{price,jdbcType=DECIMAL},
       </if>
-      <if test="describe != null">
-        #{describe,jdbcType=VARCHAR},
+      <if test="servDescribe != null">
+        #{servDescribe,jdbcType=VARCHAR},
       </if>
       <if test="servVolume != null">
         #{servVolume,jdbcType=INTEGER},
@@ -161,7 +162,7 @@
         #{servStatus,jdbcType=INTEGER},
       </if>
       <if test="labelId != null">
-        #{labelId,jdbcType=INTEGER},
+        #{labelId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -180,8 +181,8 @@
       <if test="record.price != null">
         price = #{record.price,jdbcType=DECIMAL},
       </if>
-      <if test="record.describe != null">
-        describe = #{record.describe,jdbcType=VARCHAR},
+      <if test="record.servDescribe != null">
+        serv_describe = #{record.servDescribe,jdbcType=VARCHAR},
       </if>
       <if test="record.servVolume != null">
         serv_volume = #{record.servVolume,jdbcType=INTEGER},
@@ -196,7 +197,7 @@
         serv_status = #{record.servStatus,jdbcType=INTEGER},
       </if>
       <if test="record.labelId != null">
-        label_id = #{record.labelId,jdbcType=INTEGER},
+        label_id = #{record.labelId,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -207,12 +208,12 @@
     update tbl_service
     set serv_id = #{record.servId,jdbcType=INTEGER},
       price = #{record.price,jdbcType=DECIMAL},
-      describe = #{record.describe,jdbcType=VARCHAR},
+      serv_describe = #{record.servDescribe,jdbcType=VARCHAR},
       serv_volume = #{record.servVolume,jdbcType=INTEGER},
       third_id = #{record.thirdId,jdbcType=INTEGER},
       serv_createtime = #{record.servCreatetime,jdbcType=TIMESTAMP},
       serv_status = #{record.servStatus,jdbcType=INTEGER},
-      label_id = #{record.labelId,jdbcType=INTEGER}
+      label_id = #{record.labelId,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -223,8 +224,8 @@
       <if test="price != null">
         price = #{price,jdbcType=DECIMAL},
       </if>
-      <if test="describe != null">
-        describe = #{describe,jdbcType=VARCHAR},
+      <if test="servDescribe != null">
+        serv_describe = #{servDescribe,jdbcType=VARCHAR},
       </if>
       <if test="servVolume != null">
         serv_volume = #{servVolume,jdbcType=INTEGER},
@@ -239,7 +240,7 @@
         serv_status = #{servStatus,jdbcType=INTEGER},
       </if>
       <if test="labelId != null">
-        label_id = #{labelId,jdbcType=INTEGER},
+        label_id = #{labelId,jdbcType=VARCHAR},
       </if>
     </set>
     where serv_id = #{servId,jdbcType=INTEGER}
@@ -247,12 +248,12 @@
   <update id="updateByPrimaryKey" parameterType="com.top.sstore.pojo.Service">
     update tbl_service
     set price = #{price,jdbcType=DECIMAL},
-      describe = #{describe,jdbcType=VARCHAR},
+      serv_describe = #{servDescribe,jdbcType=VARCHAR},
       serv_volume = #{servVolume,jdbcType=INTEGER},
       third_id = #{thirdId,jdbcType=INTEGER},
       serv_createtime = #{servCreatetime,jdbcType=TIMESTAMP},
       serv_status = #{servStatus,jdbcType=INTEGER},
-      label_id = #{labelId,jdbcType=INTEGER}
+      label_id = #{labelId,jdbcType=VARCHAR}
     where serv_id = #{servId,jdbcType=INTEGER}
   </update>
 </mapper>

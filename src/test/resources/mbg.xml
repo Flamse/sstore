@@ -16,8 +16,8 @@
   	<!-- 配置数据库连接信息 -->
     <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
         connectionURL="jdbc:mysql://localhost:3306/sstore?serverTimezone=GMT%2B8"
-        userId="zn"
-        password="123456">
+        userId="root"
+        password="15270476656">
       <property name="nullCatalogMeansCurrent" value="true"/>
     </jdbcConnection>
 
@@ -68,6 +68,7 @@
     <table tableName="tbl_service" domainObjectName="Service" />
     <table tableName="tbl_thirdsort" domainObjectName="Thirdsort" />
     <table tableName="tbl_user" domainObjectName="User" />
+    <table tableName="tbl_index" domainObjectName="Index" />
 
   </context>
 </generatorConfiguration>

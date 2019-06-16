@@ -1,5 +1,6 @@
 package com.top.sstore.common;
 
+import com.top.sstore.utils.Message;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,7 +15,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public String errorHandler(Exception e){
-        return "global error:"+e.getClass().getName();
+    public Message errorHandler(Exception e){
+        return Message.fail("global error:"+e.getClass().getName());
     }
 }

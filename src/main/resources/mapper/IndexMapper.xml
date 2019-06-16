@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.top.sstore.dao.PictureMapper">
-  <resultMap id="BaseResultMap" type="com.top.sstore.pojo.Picture">
-    <id column="picture_id" jdbcType="INTEGER" property="pictureId" />
-    <result column="picture" jdbcType="CHAR" property="picture" />
+<mapper namespace="com.top.sstore.dao.IndexMapper">
+  <resultMap id="BaseResultMap" type="com.top.sstore.pojo.Index">
+    <id column="index_id" jdbcType="INTEGER" property="indexId" />
+    <result column="label_id" jdbcType="INTEGER" property="labelId" />
     <result column="serv_id" jdbcType="INTEGER" property="servId" />
-    <result column="picture_type" jdbcType="INTEGER" property="pictureType" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,15 +65,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    picture_id, picture, serv_id, picture_type
+    index_id, label_id, serv_id
   </sql>
-  <select id="selectByExample" parameterType="com.top.sstore.pojo.PictureExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.top.sstore.pojo.IndexExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from tbl_picture
+    from tbl_index
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +84,67 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from tbl_picture
-    where picture_id = #{pictureId,jdbcType=INTEGER}
+    from tbl_index
+    where index_id = #{indexId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from tbl_picture
-    where picture_id = #{pictureId,jdbcType=INTEGER}
+    delete from tbl_index
+    where index_id = #{indexId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.top.sstore.pojo.PictureExample">
-    delete from tbl_picture
+  <delete id="deleteByExample" parameterType="com.top.sstore.pojo.IndexExample">
+    delete from tbl_index
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.top.sstore.pojo.Picture">
-    insert into tbl_picture (picture_id, picture, serv_id, 
-      picture_type)
-    values (#{pictureId,jdbcType=INTEGER}, #{picture,jdbcType=CHAR}, #{servId,jdbcType=INTEGER}, 
-      #{pictureType,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.top.sstore.pojo.Index">
+    insert into tbl_index (index_id, label_id, serv_id
+      )
+    values (#{indexId,jdbcType=INTEGER}, #{labelId,jdbcType=INTEGER}, #{servId,jdbcType=INTEGER}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.top.sstore.pojo.Picture">
-    insert into tbl_picture
+  <insert id="insertSelective" parameterType="com.top.sstore.pojo.Index">
+    insert into tbl_index
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="pictureId != null">
-        picture_id,
+      <if test="indexId != null">
+        index_id,
       </if>
-      <if test="picture != null">
-        picture,
+      <if test="labelId != null">
+        label_id,
       </if>
       <if test="servId != null">
         serv_id,
       </if>
-      <if test="pictureType != null">
-        picture_type,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="pictureId != null">
-        #{pictureId,jdbcType=INTEGER},
+      <if test="indexId != null">
+        #{indexId,jdbcType=INTEGER},
       </if>
-      <if test="picture != null">
-        #{picture,jdbcType=CHAR},
+      <if test="labelId != null">
+        #{labelId,jdbcType=INTEGER},
       </if>
       <if test="servId != null">
         #{servId,jdbcType=INTEGER},
       </if>
-      <if test="pictureType != null">
-        #{pictureType,jdbcType=INTEGER},
-      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.top.sstore.pojo.PictureExample" resultType="java.lang.Long">
-    select count(*) from tbl_picture
+  <select id="countByExample" parameterType="com.top.sstore.pojo.IndexExample" resultType="java.lang.Long">
+    select count(*) from tbl_index
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update tbl_picture
+    update tbl_index
     <set>
-      <if test="record.pictureId != null">
-        picture_id = #{record.pictureId,jdbcType=INTEGER},
+      <if test="record.indexId != null">
+        index_id = #{record.indexId,jdbcType=INTEGER},
       </if>
-      <if test="record.picture != null">
-        picture = #{record.picture,jdbcType=CHAR},
+      <if test="record.labelId != null">
+        label_id = #{record.labelId,jdbcType=INTEGER},
       </if>
       <if test="record.servId != null">
         serv_id = #{record.servId,jdbcType=INTEGER},
-      </if>
-      <if test="record.pictureType != null">
-        picture_type = #{record.pictureType,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null">
@@ -162,35 +152,30 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update tbl_picture
-    set picture_id = #{record.pictureId,jdbcType=INTEGER},
-      picture = #{record.picture,jdbcType=CHAR},
-      serv_id = #{record.servId,jdbcType=INTEGER},
-      picture_type = #{record.pictureType,jdbcType=INTEGER}
+    update tbl_index
+    set index_id = #{record.indexId,jdbcType=INTEGER},
+      label_id = #{record.labelId,jdbcType=INTEGER},
+      serv_id = #{record.servId,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.top.sstore.pojo.Picture">
-    update tbl_picture
+  <update id="updateByPrimaryKeySelective" parameterType="com.top.sstore.pojo.Index">
+    update tbl_index
     <set>
-      <if test="picture != null">
-        picture = #{picture,jdbcType=CHAR},
+      <if test="labelId != null">
+        label_id = #{labelId,jdbcType=INTEGER},
       </if>
       <if test="servId != null">
         serv_id = #{servId,jdbcType=INTEGER},
       </if>
-      <if test="pictureType != null">
-        picture_type = #{pictureType,jdbcType=INTEGER},
-      </if>
     </set>
-    where picture_id = #{pictureId,jdbcType=INTEGER}
+    where index_id = #{indexId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.top.sstore.pojo.Picture">
-    update tbl_picture
-    set picture = #{picture,jdbcType=CHAR},
-      serv_id = #{servId,jdbcType=INTEGER},
-      picture_type = #{pictureType,jdbcType=INTEGER}
-    where picture_id = #{pictureId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.top.sstore.pojo.Index">
+    update tbl_index
+    set label_id = #{labelId,jdbcType=INTEGER},
+      serv_id = #{servId,jdbcType=INTEGER}
+    where index_id = #{indexId,jdbcType=INTEGER}
   </update>
 </mapper>

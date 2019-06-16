@@ -8,7 +8,7 @@ public class Service {
 
     private BigDecimal price;
 
-    private String describe;
+    private String servDescribe;
 
     private Integer servVolume;
 
@@ -18,7 +18,7 @@ public class Service {
 
     private Integer servStatus;
 
-    private Integer labelId;
+    private String labelId;
 
     public Integer getServId() {
         return servId;
@@ -36,12 +36,12 @@ public class Service {
         this.price = price;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getServDescribe() {
+        return servDescribe;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe == null ? null : describe.trim();
+    public void setServDescribe(String servDescribe) {
+        this.servDescribe = servDescribe == null ? null : servDescribe.trim();
     }
 
     public Integer getServVolume() {
@@ -76,11 +76,11 @@ public class Service {
         this.servStatus = servStatus;
     }
 
-    public Integer getLabelId() {
+    public String getLabelId() {
         return labelId;
     }
 
-    public void setLabelId(Integer labelId) {
-        this.labelId = labelId;
+    public void setLabelId(String labelId) {
+        this.labelId = labelId == null ? null : labelId.trim();
     }
 }

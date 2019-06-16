@@ -1,9 +1,7 @@
 package com.top.sstore.service;
 
 import com.top.sstore.pojo.User;
-import org.springframework.stereotype.Service;
 
-@Service
 public interface IUserService {
 
     /**
@@ -12,7 +10,13 @@ public interface IUserService {
      * @Return 返回主键
      * @Date 2019/5/29/029 11:16
      */
-    public void userRegistration(User user);
+    void userRegistration(User user);
+    /**
+     * @author zh
+     * @date 2019/6/6/006 8:19
+     * 发送激活邮件
+     */
+    boolean sendEmail(User user);
 
     /**
      * @Author zh
@@ -20,21 +24,18 @@ public interface IUserService {
      * @Return 返回影响行的数目
      * @Date 2019/5/29/029 11:17
      */
-    public User userLogin(User user);
+    User userLogin(User user);
 
-    //用户登录注册需要的检查
-    public void checkUsername();
+    //用户登录注册需要的检查存在
+    boolean checkIfBeing(String string);
 
-    public void checkEmail();
-
-    public void checkPhone();
     /**
      * @Author zh
      * @Description 
-     * @Return 
+     * @Return 检查状态
      * @Date 2019/5/29/029 12:25
      */
-    public String checkState();
+    boolean checkStatus(User user);
     
     /**
      * @Author zh
@@ -42,7 +43,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public User showUser();
+    User showUser(User user);
     
     /**
      * @Author zh
@@ -50,7 +51,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public void updateUsername();
+    void updateUsername();
 
     /**
      * @Author zh
@@ -58,7 +59,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public User updateStatus(User user);
+    boolean updateStatus(User user);
 
     /**
      * @Author zh
@@ -66,7 +67,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public void plusAddress();
+    void plusAddress(User user);
 
     /**
      * @Author zh
@@ -74,7 +75,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public void updateAddress();
+    void updateAddress();
 
     /**
      * @Author zh
@@ -82,7 +83,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    public void showAddress();
+    void showAddress();
 
 
 }

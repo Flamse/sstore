@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    disrict_id, name, parent_id, code, order
+    disrict_id, name, parent_id, code, `order`
   </sql>
   <select id="selectByExample" parameterType="com.top.sstore.pojo.DistrictExample" resultMap="BaseResultMap">
     select

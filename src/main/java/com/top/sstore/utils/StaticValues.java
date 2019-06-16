@@ -8,6 +8,12 @@ public class StaticValues {
     @Value("${ipAddress.tomcat}")
     private String tomcatIP;
 
+    //分页控制
+    @Value("${pageSizeBySort}")
+    private Integer pageSizeBySort;
+    @Value("${pageSizeByCart}")
+    private Integer pageSizeByCart;
+
     //状态码
     @Value("${status.user.inactive}")
     private Integer userInactive;
@@ -35,6 +41,14 @@ public class StaticValues {
 
     @Value("${status.order.cancelOrder}")
     private Integer orderCancelOrder;
+
+    public Integer getPageSizeBySort() {
+        return pageSizeBySort;
+    }
+
+    public Integer getPageSizeByCart() {
+        return pageSizeByCart;
+    }
 
 
     public String getTomcatIP() {
@@ -69,7 +83,7 @@ public class StaticValues {
         return orderDistributeOrder;
     }
 
-    public Integer getOrdercCompleteOrder() {
+    public Integer getOrderCompleteOrder() {
         return orderCompleteOrder;
     }
 

@@ -10,22 +10,30 @@ import java.util.Map;
  */
 public class Message {
 	// 200 成功 404 失败
-	private int code;
-	private String msg;
+//	private int code;
+	private Integer state;
+	private String message;
 	// 服务器要返回给浏览器的数据
-	private Map<String, Object> data = new HashMap<String, Object>();
+	private Map<String, Object> data = new HashMap<String, Object>();	//可选
 
 	public static Message success() {
 		Message message = new Message();
-		message.setCode(200);
-		message.setMsg("处理成功");
+		message.setState(200);
+		message.setMessage("处理成功");
 		return message;
 	}
-
+	/*默认返回*/
 	public static Message fail() {
 		Message message = new Message();
-		message.setCode(404);
-		message.setMsg("处理失败");
+		message.setState(404);
+		message.setMessage("处理失败");
+		return message;
+	}
+	/*多态*/
+	public static Message fail(String meg) {
+		Message message = new Message();
+		message.setState(404);
+		message.setMessage(meg);
 		return message;
 	}
 
@@ -39,20 +47,20 @@ public class Message {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getCode() {
-		return code;
+	public Integer getState() {
+		return state;
 	}
 
-	public void setCode(int code) {
-		this.code = code;
+	public void setState(Integer state) {
+		this.state = state;
 	}
 
-	public String getMsg() {
-		return msg;
+	public String getMessage() {
+		return message;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 	public Map<String, Object> getData() {

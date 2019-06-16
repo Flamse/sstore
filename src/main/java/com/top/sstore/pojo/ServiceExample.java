@@ -226,73 +226,73 @@ public class ServiceExample {
             return (Criteria) this;
         }
 
-        public Criteria andDescribeIsNull() {
-            addCriterion("describe is null");
+        public Criteria andServDescribeIsNull() {
+            addCriterion("serv_describe is null");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeIsNotNull() {
-            addCriterion("describe is not null");
+        public Criteria andServDescribeIsNotNull() {
+            addCriterion("serv_describe is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeEqualTo(String value) {
-            addCriterion("describe =", value, "describe");
+        public Criteria andServDescribeEqualTo(String value) {
+            addCriterion("serv_describe =", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeNotEqualTo(String value) {
-            addCriterion("describe <>", value, "describe");
+        public Criteria andServDescribeNotEqualTo(String value) {
+            addCriterion("serv_describe <>", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeGreaterThan(String value) {
-            addCriterion("describe >", value, "describe");
+        public Criteria andServDescribeGreaterThan(String value) {
+            addCriterion("serv_describe >", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeGreaterThanOrEqualTo(String value) {
-            addCriterion("describe >=", value, "describe");
+        public Criteria andServDescribeGreaterThanOrEqualTo(String value) {
+            addCriterion("serv_describe >=", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeLessThan(String value) {
-            addCriterion("describe <", value, "describe");
+        public Criteria andServDescribeLessThan(String value) {
+            addCriterion("serv_describe <", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeLessThanOrEqualTo(String value) {
-            addCriterion("describe <=", value, "describe");
+        public Criteria andServDescribeLessThanOrEqualTo(String value) {
+            addCriterion("serv_describe <=", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeLike(String value) {
-            addCriterion("describe like", value, "describe");
+        public Criteria andServDescribeLike(String value) {
+            addCriterion("serv_describe like", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeNotLike(String value) {
-            addCriterion("describe not like", value, "describe");
+        public Criteria andServDescribeNotLike(String value) {
+            addCriterion("serv_describe not like", value, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeIn(List<String> values) {
-            addCriterion("describe in", values, "describe");
+        public Criteria andServDescribeIn(List<String> values) {
+            addCriterion("serv_describe in", values, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeNotIn(List<String> values) {
-            addCriterion("describe not in", values, "describe");
+        public Criteria andServDescribeNotIn(List<String> values) {
+            addCriterion("serv_describe not in", values, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeBetween(String value1, String value2) {
-            addCriterion("describe between", value1, value2, "describe");
+        public Criteria andServDescribeBetween(String value1, String value2) {
+            addCriterion("serv_describe between", value1, value2, "servDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andDescribeNotBetween(String value1, String value2) {
-            addCriterion("describe not between", value1, value2, "describe");
+        public Criteria andServDescribeNotBetween(String value1, String value2) {
+            addCriterion("serv_describe not between", value1, value2, "servDescribe");
             return (Criteria) this;
         }
 
@@ -546,52 +546,62 @@ public class ServiceExample {
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdEqualTo(Integer value) {
+        public Criteria andLabelIdEqualTo(String value) {
             addCriterion("label_id =", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdNotEqualTo(Integer value) {
+        public Criteria andLabelIdNotEqualTo(String value) {
             addCriterion("label_id <>", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdGreaterThan(Integer value) {
+        public Criteria andLabelIdGreaterThan(String value) {
             addCriterion("label_id >", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdGreaterThanOrEqualTo(Integer value) {
+        public Criteria andLabelIdGreaterThanOrEqualTo(String value) {
             addCriterion("label_id >=", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdLessThan(Integer value) {
+        public Criteria andLabelIdLessThan(String value) {
             addCriterion("label_id <", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdLessThanOrEqualTo(Integer value) {
+        public Criteria andLabelIdLessThanOrEqualTo(String value) {
             addCriterion("label_id <=", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdIn(List<Integer> values) {
+        public Criteria andLabelIdLike(String value) {
+            addCriterion("label_id like", value, "labelId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelIdNotLike(String value) {
+            addCriterion("label_id not like", value, "labelId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLabelIdIn(List<String> values) {
             addCriterion("label_id in", values, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdNotIn(List<Integer> values) {
+        public Criteria andLabelIdNotIn(List<String> values) {
             addCriterion("label_id not in", values, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdBetween(Integer value1, Integer value2) {
+        public Criteria andLabelIdBetween(String value1, String value2) {
             addCriterion("label_id between", value1, value2, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdNotBetween(Integer value1, Integer value2) {
+        public Criteria andLabelIdNotBetween(String value1, String value2) {
             addCriterion("label_id not between", value1, value2, "labelId");
             return (Criteria) this;
         }

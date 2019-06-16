@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestUserServices {
+public class UserServicesTests {
 
     @Autowired
     private IUserService userService;
@@ -27,12 +27,25 @@ public class TestUserServices {
     }
 
     @Test
+    public void check(){
+//        System.out.println(userService.checkUsername("张鸿"));
+//        System.out.println(userService.checkUsername("张三"));
+    }
+
+    @Test
     public void finishLogin(){  //激活
         User user = new User();
         user.setUserName("张登杰");
         user.setUserCdk("eb85c1ac24bb4c4ca3425127ae88eaed3e99d24537a84873b2a82e5ac2e7744b");
         userService.updateStatus(user);
         //测试成功
+    }
+
+    @Test
+    public void findUser(){
+        User user = new User();
+        user.setUserId(1);
+        System.out.println(userService.showUser(user).getUserName());
     }
 
 }

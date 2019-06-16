@@ -18,7 +18,7 @@ spring:
   devtools:
     remote:
       restart:
-        enabled: true
+        enabled: false
     restart:
       additional-paths: src/main
   thymeleaf:
@@ -54,6 +54,7 @@ spring:
       min-evictable-idle-time-millis: 300000
       #监控统计拦截的filters,内置filter
       filters: stat,wall
+
 #  邮件setting
   mail:
     host: smtp.163.com #发送邮件服务器
@@ -82,6 +83,10 @@ pagehelper:
   returnPageInfo: check
 
 #debug: true
+
+#一级分类最大展示数
+pageSizeBySort: 16
+pageSizeByCart: 10
 
 status:
   #用户账号状态码
@@ -112,5 +117,5 @@ status:
     cancelOrder: 399
 
 ipAddress:
-  tomcat: 10.102.4.142:8080
+  tomcat: 192.168.1.100:8080
 
