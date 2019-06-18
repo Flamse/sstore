@@ -77,7 +77,9 @@ public interface IServiceService {
      * 修改商品
      * 一样一样
      */
-    boolean updateService(Service service);
+    boolean updateServNum(Integer serviceId, Integer servVolume);
+
+    Integer selectServNum(Integer serviceId);
 
     /**
      * @author zh

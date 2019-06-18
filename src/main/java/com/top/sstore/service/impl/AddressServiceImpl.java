@@ -9,9 +9,11 @@ import com.top.sstore.pojo.DistrictExample;
 import com.top.sstore.service.IAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class AddressServiceImpl implements IAddressService {
 
@@ -35,7 +37,7 @@ public class AddressServiceImpl implements IAddressService {
     @Override
     public List<Address> selectAddressOfAllById(Integer userId) {
         AddressExample example = new AddressExample();
-        example.createCriteria().andUserIdEqualTo(userId);
+        example.createCriteria().andUserIdEqualTo(userId).andAddressStatusEqualTo(0);
         List<Address> addresses = addressMapper.selectByExample(example);
         return addresses;
     }
@@ -44,7 +46,6 @@ public class AddressServiceImpl implements IAddressService {
     public Address selectAddressById(Integer addressId, Integer userId) {
         AddressExample example = new AddressExample();
 
-        /* 需要抛异常 */
         example.createCriteria().andUserIdEqualTo(userId).andAddressIdEqualTo(addressId);
 
         List<Address> addresses = addressMapper.selectByExample(example);
@@ -56,9 +57,8 @@ public class AddressServiceImpl implements IAddressService {
         AddressExample example = new AddressExample();
         example.createCriteria().andAddressIdEqualTo(address.getAddressId()).andUserIdEqualTo(userId);
         Integer a = addressMapper.updateByExampleSelective(address, example);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }
         return false;
     }
 
@@ -70,9 +70,8 @@ public class AddressServiceImpl implements IAddressService {
         Address address = new Address();
         address.setAddressStatus(1);
         int a = addressMapper.updateByExampleSelective(address, example);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }
         return false;
     }
 

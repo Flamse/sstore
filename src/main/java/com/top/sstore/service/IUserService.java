@@ -10,7 +10,7 @@ public interface IUserService {
      * @Return 返回主键
      * @Date 2019/5/29/029 11:16
      */
-    void userRegistration(User user);
+    boolean userRegistration(User user);
     /**
      * @author zh
      * @date 2019/6/6/006 8:19
@@ -26,8 +26,8 @@ public interface IUserService {
      */
     User userLogin(User user);
 
-    //用户登录注册需要的检查存在
-    boolean checkIfBeing(String string);
+
+    boolean checkUserId(Integer userId);
 
     /**
      * @Author zh
@@ -43,7 +43,7 @@ public interface IUserService {
      * @Return 
      * @Date 2019/5/29/029 11:19
      */
-    User showUser(User user);
+    User showUserById(Integer userId);
     
     /**
      * @Author zh
@@ -52,6 +52,13 @@ public interface IUserService {
      * @Date 2019/5/29/029 11:19
      */
     void updateUsername();
+
+    /**
+     * @author zh
+     * @date 2019/6/17/017 15:05
+     * 修改密码
+     */
+    boolean updatePassword(Integer userId, String oldPassword, String newPassword);
 
     /**
      * @Author zh
@@ -85,5 +92,16 @@ public interface IUserService {
      */
     void showAddress();
 
-
+    /**
+     * @author zh
+     * @date 2019/6/18/018 19:16
+     * 校验用户名是否存在
+     */
+    boolean checkUsername(String username);
+    /**
+     * @author zh
+     * @date 2019/6/18/018 19:24
+     * 校验Email是否存在
+     */
+    boolean checkEmail(String email);
 }

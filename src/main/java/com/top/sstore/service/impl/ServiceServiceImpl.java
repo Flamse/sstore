@@ -10,10 +10,12 @@ import com.top.sstore.service.IServiceService;
 import com.top.sstore.service.ISortService;
 import com.top.sstore.utils.StaticValues;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Transactional
 @org.springframework.stereotype.Service
 public class ServiceServiceImpl implements IServiceService {
     @Autowired
@@ -30,13 +32,12 @@ public class ServiceServiceImpl implements IServiceService {
     /*需要AOP的支持，或者手动添加*/
     @Override
     public Service linkLabelToName(Service service) {
-        List<String> list = searchService.selectLabelnameByServiceId(service.getServId());
+        List<String> labelName = searchService.selectLabelnameByServiceId(service.getServId()); //  提取标签名
         /*https://blog.csdn.net/benben683280/article/details/78716295*/
-        String s = list.stream().collect(Collectors.joining(" "));
+        String s = labelName.stream().collect(Collectors.joining(" "));     //拼接成商品名
 
         //转换
         service.setLabelId(s);
-
         return service;
     }
 
@@ -81,10 +82,9 @@ public class ServiceServiceImpl implements IServiceService {
     public PageInfo<Service> selectServiceOfAllByIds(List<Integer> serviceIds, Integer pageNum) {
         ServiceExample example = new ServiceExample();
 
-        /*购物车 排序问题*/
         example.createCriteria().andServIdIn(serviceIds);
 
-        PageHelper.startPage(pageNum, staticValues.getPageSizeByCart());
+        PageHelper.startPage(pageNum, staticValues.getPageSizeBySearch());
         List<Service> services = serviceMapper.selectByExample(example);
         /*循环替换*/
         for (Service service : services){
@@ -160,8 +160,25 @@ public class ServiceServiceImpl implements IServiceService {
     }
 
     @Override
-    public boolean updateService(Service service) {
-        return false;
+    public boolean updateServNum(Integer serviceId, Integer servVolume) {
+        Service service = new Service();
+        service.setServVolume(servVolume);
+
+        ServiceExample example = new ServiceExample();
+        example.createCriteria().andServIdEqualTo(serviceId);
+        int a = serviceMapper.updateByExampleSelective(service, example);
+        if (a == 1)
+            return true;
+        else
+            return false;
+    }
+
+    @Override
+    public Integer selectServNum(Integer serviceId) {
+        ServiceExample example = new ServiceExample();
+        example.createCriteria().andServIdEqualTo(serviceId);
+        List<Service> services = serviceMapper.selectByExample(example);
+        return services.get(0).getServVolume();
     }
 
     /**
@@ -178,9 +195,8 @@ public class ServiceServiceImpl implements IServiceService {
         service.setServStatus(staticValues.getServiceOutstock());
 
         int a = serviceMapper.updateByExampleSelective(service, example);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }
         return false;
     }
 }

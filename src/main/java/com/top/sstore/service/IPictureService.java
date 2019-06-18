@@ -10,6 +10,8 @@ public interface IPictureService {
 
     Picture selectDefaultPicture(Integer serviceId);
 
+    List<Picture> selectDefaultPicture(List<Integer> serviceId);
+
     List<Picture> selectPictureByServids(List<Integer> serviceIds);
 
 }

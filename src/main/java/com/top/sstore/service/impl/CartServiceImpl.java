@@ -3,14 +3,13 @@ package com.top.sstore.service.impl;
 import com.top.sstore.dao.CartMapper;
 import com.top.sstore.pojo.Cart;
 import com.top.sstore.pojo.CartExample;
-import com.top.sstore.pojo.Orderitem;
-import com.top.sstore.pojo.Service;
 import com.top.sstore.service.ICartService;
-import com.top.sstore.service.IServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 @org.springframework.stereotype.Service
 public class CartServiceImpl implements ICartService {
 
@@ -32,25 +31,26 @@ public class CartServiceImpl implements ICartService {
 
     /**
      * @param userId
-     * @param serviceId
      * @author zh
      * @date 2019/6/6/006 20:39
      * 选择商品在购物车（准备下单）
      */
     @Override
-    public List<Cart> selectServiceInCart(Integer userId, List<Integer> serviceId) {
+    public List<Cart> selectServiceInCart(Integer userId, List<Integer> cartIds) {
         CartExample example = new CartExample();
-        example.createCriteria().andUserIdEqualTo(userId).andServIdIn(serviceId);
+        example.createCriteria().andUserIdEqualTo(userId).andCartIdIn(cartIds);
         List<Cart> carts = cartMapper.selectByExample(example);
+//        for (Cart cart : carts){
+//            System.out.println(cart.getCartId());
+//        }
         return carts;
     }
 
     @Override
     public boolean addServiceToCart(Cart cart) {
         int a = cartMapper.insertSelective(cart);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }
         return false;
     }
 
@@ -63,9 +63,8 @@ public class CartServiceImpl implements ICartService {
         Cart cart = new Cart();
         cart.setServNumber(cartNum);
         int a = cartMapper.updateByExampleSelective(cart, example);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }
         return false;
     }
 
@@ -76,20 +75,40 @@ public class CartServiceImpl implements ICartService {
         example.createCriteria().andCartIdEqualTo(cartId).andUserIdEqualTo(userId);
 
         int a = cartMapper.deleteByExample(example);
-        if (a == 1 ){
+        if (a == 1 )
             return true;
-        }
         return false;
     }
 
     @Override
-    public boolean checkUserIDInCartId(Integer cartId, Integer userId) {
+    public boolean deleteServiceFromCartByIdAndUserid(List<Integer> cartId, Integer userId) {
         CartExample example = new CartExample();
-        example.createCriteria().andUserIdEqualTo(userId).andCartIdEqualTo(cartId);
+        example.createCriteria().andUserIdEqualTo(userId).andCartIdIn(cartId);
+        int a = cartMapper.deleteByExample(example);
+        if (a == 1)
+            return true;
+        return false;
+    }
+
+    @Override
+    public boolean checkUserIDInCartId(Integer cartId, Integer useId) {
+        CartExample example = new CartExample();
+        example.createCriteria().andCartIdEqualTo(cartId).andUserIdEqualTo(useId);
+        long a = cartMapper.countByExample(example);
+        if (a == 1)
+            return true;
+        return false;
+    }
+
+    @Override
+    public Cart selectCartByServId(Integer serviceId, Integer userId) {
+        CartExample example = new CartExample();
+        example.createCriteria().andUserIdEqualTo(userId).andServIdEqualTo(serviceId);
         List<Cart> carts = cartMapper.selectByExample(example);
         if (carts.size() == 1){
-            return true;
-        }
-        return false;
+            return carts.get(0);
+        }else if (carts.size() == 0)
+            return null;
+        throw new RuntimeException();
     }
 }

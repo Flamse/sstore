@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/service")
@@ -29,9 +31,12 @@ public class ServiceController {
     /*搜索框 查询*/
     @GetMapping("/search")
     public Message getServiceByLabel(String label, Integer pageNum){
-        PageInfo<Service> servicePageInfo = searchService.selectServiceByLabel(label, pageNum);
+        String[] labelBits = label.split(" ");
+//        List<String> labelss = Arrays.stream(labels).map(s -> Integer.parseInt(s.trim())).collect(Collectors.toList());
+        List<String> labels = Arrays.asList(labelBits); //数组转List
+//        System.out.println(labels);
+        PageInfo<Service> servicePageInfo = searchService.selectServiceByLabel(labels, pageNum);
 //        List<Integer> serviceId = servicePageInfo.getList().stream().map(Service::getServId).collect(Collectors.toList());
-
 
         List<Picture> pictures=new ArrayList<>();
         for (Service service : servicePageInfo.getList()){

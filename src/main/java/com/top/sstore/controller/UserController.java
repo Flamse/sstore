@@ -8,9 +8,11 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/*
+* s_*表示需要拦截的请求
+* */
 @RestController
 @RequestMapping("/account")
 public class UserController {
@@ -29,7 +31,7 @@ public class UserController {
 
     /*注册*/
     @PostMapping("/join")
-    public Message SignUp(User user){
+    public Message join(User user){
         /*非空校验，用户名、密码、Email不能为空*/
         if(user.getUserName() != null && user.getUserPassword() != null && user.getUserEmail() != null ) {
             /*检查邮箱格式*/
@@ -37,9 +39,11 @@ public class UserController {
                 if (user.getUserPassword() != null) {
                     /*密码为空，加密时会报错*/
                     user.setUserPassword(DigestUtils.md5Hex(user.getUserPassword()));   //MD5加密，32位
-                    userService.userRegistration(user);
-                    return Message.success();
-
+                    boolean b = userService.userRegistration(user);
+                    if (b)
+                        return Message.success();
+                    else
+                        return Message.fail("注册失败");
                 } else
                     return Message.fail("密码不能为空");
             } else
@@ -102,15 +106,31 @@ public class UserController {
         }
     }
 
+    /**
+     * @author zh
+     * @date 2019/6/17/017 15:03
+     * 退出登录
+     */
     @GetMapping("/signout")
-    public Message signout(HttpSession session){
+    public Message s_signout(HttpSession session){
         Integer userId = (Integer) session.getAttribute("userAccountId");
-        if (userId != null){
+            if (userId != null){
             session.removeAttribute("userAccountId");
             return Message.success();
         } else {
             return Message.fail();
         }
+    }
+
+    @PostMapping("/changePassword")
+    public Message s_changePassword(HttpSession session, String oldPsd, String newPsd){
+        String oldPassword = DigestUtils.md5Hex(oldPsd);
+        String newPassword = DigestUtils.md5Hex(newPsd);
+        Integer userId = (Integer)session.getAttribute(staticValues.getSessionUserId());
+        boolean b = userService.updatePassword(userId, oldPassword, newPassword);
+        if (b)
+            return Message.success();
+        return Message.fail();
     }
 
 
@@ -119,25 +139,46 @@ public class UserController {
      * @date 2019/6/14/014 15:17
      * 校验字段 重复性
      */
-    @GetMapping("/checkIfBeing")
-    public Message checkIfBeing(String string){
-        boolean b = userService.checkIfBeing(string);
+    @GetMapping("/checkUserId")
+    public Message s_checkUserId(Integer userId){
+        boolean b = userService.checkUserId(userId);
         if (b)
             return Message.success();
         return Message.fail();
     }
 
+    @PostMapping("/checkUsername")
+    public Message checkUsername(String username){
+        boolean b = userService.checkUsername(username);
+        if (b)
+            return Message.fail();
+        return Message.success();
+    }
+
+    @PostMapping("/checkEmail")
+    public Message checkEmail(String userEmail){
+        if (userEmail.matches("\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*")) {
+            boolean b = userService.checkEmail(userEmail);
+            if (b)
+                return Message.fail();
+            else
+                return Message.success();
+        }else
+            return Message.fail("邮箱格式错误");
+    }
+
     /*test*/
-    @GetMapping("/findUser")
-    public Message findUser(User user, HttpServletRequest request){
-        System.out.println("==========");
-        System.out.println(request.getRequestURI());
-        System.out.println(request.getRequestURL());
-        System.out.println(request.getContextPath());
-        System.out.println(request.getServletPath());
-        System.out.println(request.getRemoteAddr());
+//    @GetMapping("/showUser")
+    public Message findUser(HttpSession session){
+//        System.out.println("==========");
+//        System.out.println(request.getRequestURI());
+//        System.out.println(request.getRequestURL());
+//        System.out.println(request.getContextPath());
+//        System.out.println(request.getServletPath());
+//        System.out.println(request.getRemoteAddr());
 //        return new ResponseResult<>(0,"查询用户成功",userService.showUserById(user));
-        return Message.success().add("user", userService.showUser(user));
+        Integer userId = (Integer)session.getAttribute(staticValues.getSessionUserId());
+        return Message.success().add("user", userService.showUserById(userId));
     }
 
 //    @GetMapping("/test")

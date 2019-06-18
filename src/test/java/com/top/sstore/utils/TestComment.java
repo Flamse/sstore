@@ -13,7 +13,7 @@ public class TestComment {
 
     @Test
     public void getOrderId(){
-        Integer orderId=UUID.randomUUID().toString().hashCode();
+        Integer orderId=UUIDUtils.getUUIDInOrderId();
         System.out.println(orderId);
     }
 

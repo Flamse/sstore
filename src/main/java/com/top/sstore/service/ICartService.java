@@ -21,7 +21,7 @@ public interface ICartService {
      * @date 2019/6/6/006 20:39
      * 选择商品在购物车
      */
-    List<Cart> selectServiceInCart(Integer userId, List<Integer> serviceId);
+    List<Cart> selectServiceInCart(Integer userId, List<Integer> cartIds);
 
     /**
      * @author zh
@@ -43,11 +43,18 @@ public interface ICartService {
      * 删除商品从购物车
      */
     boolean deleteServiceFromCartByIdAndUserid(Integer cartId, Integer userId);
+    boolean deleteServiceFromCartByIdAndUserid(List<Integer> cartId, Integer userId);
 
     /**
      * @author zh
      * @date 2019/6/12/012 16:12
      * 检查用户是否有这个商品
      */
-    boolean checkUserIDInCartId(Integer cartId, Integer userId);
+    boolean checkUserIDInCartId(Integer cartId, Integer useId);
+    /**
+     * @author zh
+     * @date 2019/6/18/018 11:22
+     * 查看商品是否在用户的购物车
+     */
+    Cart selectCartByServId(Integer serviceId, Integer userId);
 }

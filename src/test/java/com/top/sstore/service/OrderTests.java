@@ -29,9 +29,9 @@ public class OrderTests {
     @Test
     public void testPushOrder(){
         List<Integer> list=new ArrayList<>();
-        list.add(1);
-        list.add(2);
-        list.add(3);
+        list.add(13);
+        list.add(14);
+//        list.add(3);
         orderService.pushOrder(1,5,list);
     }
 }

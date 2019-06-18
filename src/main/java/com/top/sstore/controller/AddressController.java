@@ -20,49 +20,49 @@ public class AddressController {
     private IAddressService addressService;
 
     @GetMapping("/show")
-    public Message show(HttpSession session){
+    public Message s_show(HttpSession session){
         Integer userId = (Integer)session.getAttribute("userAccountId");
         List<Address> addresses =  addressService.selectAddressOfAllById(userId);
+        if (addresses.size() == 0)
+            return Message.fail();
         return Message.success().add("addresses", addresses);
     }
 
     @GetMapping("/showById")
-    public Message showById(Integer addressId, HttpSession session){
+    public Message s_showById(Integer addressId, HttpSession session){
         Integer userId = (Integer)session.getAttribute("userAccountId");
         Address address = addressService.selectAddressById(addressId, userId);
-        if (address != null){
+        if (address != null)
             return Message.success().add("address", address);
-        }
         return Message.fail();
     }
 
     @PostMapping("/add")
-    public Message addAddress(Address address, HttpSession session){
+    public Message s_addAddress(Address address, HttpSession session){
         Integer userId = (Integer)session.getAttribute("userAccountId");
+        if (userId == null)
+            return Message.fail("未登录");
         boolean b = addressService.addAddress(address, userId);
-        if (b){ //添加成功
+        if (b) //添加成功
             return Message.success();
-        }
         return Message.fail();
     }
 
     @PostMapping("/update")
-    public Message updateAddress(Address address, HttpSession session){
+    public Message s_updateAddress(Address address, HttpSession session){
         Integer userId = (Integer) session.getAttribute("userAccountId");
         boolean b = addressService.updateAddress(address, userId);
-        if (b){
+        if (b)
             return Message.success();
-        }
         return Message.fail();
     }
 
     @GetMapping("/delete")
-    public Message deleteAddress(Integer addressId, HttpSession session){
+    public Message s_deleteAddress(Integer addressId, HttpSession session){
         Integer userId = (Integer) session.getAttribute("userAccountId");
         boolean b = addressService.deleteAddress(addressId, userId);
-        if (b){
+        if (b)
             return Message.success();
-        }
         return Message.fail();
     }
 

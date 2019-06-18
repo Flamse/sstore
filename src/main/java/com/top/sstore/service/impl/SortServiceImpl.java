@@ -7,10 +7,12 @@ import com.top.sstore.pojo.*;
 import com.top.sstore.service.ISortService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Transactional
 @Service
 public class SortServiceImpl implements ISortService {
     @Autowired
@@ -26,21 +28,21 @@ public class SortServiceImpl implements ISortService {
     @Override
     public boolean addFirstsort(Firstsort firstsort) {
         int a = firstsortMapper.insertSelective(firstsort);
-        if (a == 1){
-            return true;
-        }else {
-            return false;
+        if (a == 1) {
+//            return true;
+            throw new RuntimeException();
         }
+        else
+            return false;
     }
 
     @Override
     public boolean updateFirstById(Firstsort firstsort) {
         int a = firstsortMapper.updateByPrimaryKeySelective(firstsort);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }else {
+        else
             return false;
-        }
     }
 
     @Override
@@ -61,21 +63,19 @@ public class SortServiceImpl implements ISortService {
     @Override
     public boolean addSecondsort(Secondsort secondsort) {
         int a = secondsortMapper.insertSelective(secondsort);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }else {
+        else
             return false;
-        }
     }
 
     @Override
     public boolean updateSecondById(Secondsort secondsort) {
         int a = secondsortMapper.updateByPrimaryKeySelective(secondsort);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }else {
+        else
             return false;
-        }
     }
 
     @Override
@@ -107,21 +107,19 @@ public class SortServiceImpl implements ISortService {
     @Override
     public boolean addThirdsort(Thirdsort thirdsort) {
         int a = thirdsortMapper.insertSelective(thirdsort);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }else {
+        else
             return false;
-        }
     }
 
     @Override
     public boolean updateThirdById(Thirdsort thirdsort) {
         int a = thirdsortMapper.updateByPrimaryKeySelective(thirdsort);
-        if (a == 1){
+        if (a == 1)
             return true;
-        }else {
+        else
             return false;
-        }
     }
 
     @Override

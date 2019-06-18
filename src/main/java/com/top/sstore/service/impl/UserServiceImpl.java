@@ -11,10 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
 
+@Transactional
 @Service
 public class UserServiceImpl implements IUserService {
     /*日志*/
@@ -25,15 +27,9 @@ public class UserServiceImpl implements IUserService {
     private IUserService userService;
     @Autowired
     private StaticValues staticValues;
-
-    /**
-     * @author zh
-     * @date 2019/6/4/004 9:21
-     * 发送激活邮件
-     */
+    /*发送激活邮件*/
     @Autowired
     private IMailService mailService;
-
 
     /**
      * @author zh
@@ -41,11 +37,14 @@ public class UserServiceImpl implements IUserService {
      *  用户注册
      */
     @Override
-    public void userRegistration(User user) {
+    public boolean userRegistration(User user) {
         /*账号重复校验*/
         UserExample example = new UserExample();
-        //查找用户名、邮箱和手机号是否重复：邮箱、用户名唯一性
-        example.or().andUserNameEqualTo(user.getUserName()).andUserEmailEqualTo(user.getUserEmail());
+        //查找用户名、邮箱是否重复：邮箱、用户名唯一性
+        example.createCriteria().andUserNameEqualTo(user.getUserName());
+        example.or().andUserEmailEqualTo(user.getUserEmail());      //  ||
+
+//        example.or().andUserNameEqualTo(user.getUserName()).andUserEmailEqualTo(user.getUserEmail()));    // &&
 //            example.or().andUserEmailEqualTo(user.getUserEmail());
 //            example.or().andUserPhoneEqualTo(user.getUserPhone());
         long count = userMapper.countByExample(example);
@@ -55,22 +54,29 @@ public class UserServiceImpl implements IUserService {
             //添加激活码
             String userCdk = UUIDUtils.getUUID()+UUIDUtils.getUUID();
             user.setUserCdk(userCdk);
-            //
+            //时间戳
             user.setCreateTime(new Date());
-            //新增用户,有重复插入的可能
             int s = userMapper.insertSelective(user);
-            if (s == 1){    //确定注册完成，再发送验证码
+            if (s == 1){    //确定注册完成，发送验证码
                 //发送邮件，包含CDK
                 //url
 //                    String url = "http://"+staticValues.getTomcatIP()+"/account/activate?userName="+user.getUserName()+"&userCdk="+userCdk;
 //                    mailService.sendHtmlMail(user.getUserEmail(),"最后一步：激活账号", "<a href="+url+">点击我完成注册，网上商城</a>");
-                userService.sendEmail(user);
-                logger.info("sended email");
+                boolean b =userService.sendEmail(user);
+                if (b){
+                    logger.info("send email unsuccess");
+                    return true;
+                } else {
+                    logger.error("邮件发送失败");
+                    throw new RuntimeException();   //邮件发送失败，抛异常
+                }
             }else {
-                logger.info("send email unsuccess");
+                logger.warn(user.getUserName()+"注册失败");
+                return false;
             }
         }else{
             logger.warn("用户已存在");
+            return false;
         }
     }
 
@@ -111,31 +117,24 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public User userLogin(User user) {
-        User user2 = userService.showUser(user);
-        if(user.getUserName().equals(user2.getUserName())) { //使用用户名、密码登录
-//                System.out.println(user.getUserName()+user.getUserPassword());
-            UserExample example = new UserExample();
-            example.createCriteria().andUserNameEqualTo(user.getUserName()).andUserPasswordEqualTo(user.getUserPassword());
-//                example.createCriteria().andUserPasswordEqualTo(user.getUserPassword());
-            List<User> users = userMapper.selectByExample(example);
-//                System.out.println(users.get(0).getUserName());
-            if (users.size() == 1) {    //用户信息正确
-                User user1 = users.get(0);
-                if(userService.checkStatus(user1)) {  //检查用户账号是否激活
-                    logger.info(user1.getUserName() +"登录成功！");
-                    return user1;
-                }else{
-                    logger.warn("账号未激活！");
-                }
-            } else {
-                logger.info("用户名或密码错误！！");
+        UserExample example = new UserExample();
+        example.createCriteria().andUserNameEqualTo(user.getUserName()).andUserPasswordEqualTo(user.getUserPassword());
+        List<User> users = userMapper.selectByExample(example);
+        if (users.size() == 1) {    //使用用户名、密码登录
+            User user1 = users.get(0);
+            if(userService.checkStatus(user1)) {  //检查用户账号是否激活
+                logger.info(user1.getUserName() +"登录成功！");
+                return user1;
+            }else{
+                logger.warn("账号未激活！");
             }
-        }else if(user.getUserName().equals(user2.getUserEmail())){    //使用邮箱登录
-            UserExample example = new UserExample();
-            example.createCriteria().andUserEmailEqualTo(user.getUserEmail()).andUserPasswordEqualTo(user.getUserPassword());
-            List<User> users = userMapper.selectByExample(example);
-            if (users.size() == 1) {    //用户信息正确
-                User user1 = users.get(0);
+        } else {
+            /*使用邮箱登录*/
+            UserExample example1 = new UserExample();
+            example1.createCriteria().andUserEmailEqualTo(user.getUserName()).andUserPasswordEqualTo(user.getUserPassword());
+            List<User> users1 = userMapper.selectByExample(example1);
+            if (users1.size() == 1) {    //用户信息正确
+                User user1 = users1.get(0);
                 if(userService.checkStatus(user1)) {  //检查用户账号是否激活
                     logger.info(user1.getUserName() + ":登录成功！");
                     return user1;
@@ -145,8 +144,6 @@ public class UserServiceImpl implements IUserService {
             } else {
                 logger.warn("邮箱或密码错误！！");
             }
-        }else {
-            logger.error("！！！！！！！！系统错误！！！！！！！！！"); //用户名和邮箱同时存在
         }
         return null;//登录失败
     }
@@ -154,14 +151,14 @@ public class UserServiceImpl implements IUserService {
     /**
      * @author zh
      * @date 2019/6/14/014 15:13
-     * 判断字段 是否存在; 不存在返回true
+     * 校验用户ID是否存在，存在返回true
      */
     @Override
-    public boolean checkIfBeing(String string) {
+    public boolean checkUserId(Integer userId) {
         UserExample example = new UserExample();
-        example.createCriteria().andUserNameEqualTo(string);
+        example.createCriteria().andUserIdEqualTo(userId);
         long count = userMapper.countByExample(example);
-        if (count == 0)
+        if (count == 1)
             return true;
         return false;
     }
@@ -197,16 +194,35 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public User showUser(User user) {
+    public User showUserById(Integer userId) {
         UserExample example = new UserExample();
-        example.createCriteria().andUserNameEqualTo(user.getUserName());
+        example.createCriteria().andUserIdEqualTo(userId);
         List<User> users = userMapper.selectByExample(example);
-       return users.get(0);
+        if (users.size() == 1)
+            return users.get(0);
+        else
+            return null;
     }
 
     @Override
     public void updateUsername() {
 
+    }
+
+    @Override
+    public boolean updatePassword(Integer userId, String oldPassword, String newPassword) {
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andUserIdEqualTo(userId).andUserPasswordEqualTo(oldPassword);
+        long a = userMapper.countByExample(userExample);
+        if (a == 1) {
+            User user = new User();
+            user.setUserId(userId);
+            user.setUserPassword(newPassword);
+            int i = userMapper.updateByPrimaryKeySelective(user);
+            if (i == 1)
+                return true;
+        }
+        return false;
     }
 
     /**
@@ -271,5 +287,27 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void showAddress() {
 
+    }
+
+    @Override
+    public boolean checkUsername(String username) {
+        UserExample example = new UserExample();
+        example.createCriteria().andUserNameEqualTo(username);
+        long l = userMapper.countByExample(example);
+        if (l == 1)
+            return true;
+        else
+            return false;
+    }
+
+    @Override
+    public boolean checkEmail(String email) {
+        UserExample example = new UserExample();
+        example.createCriteria().andUserEmailEqualTo(email);
+        long l = userMapper.countByExample(example);
+        if (l == 1)
+            return true;
+        else
+            return false;
     }
 }

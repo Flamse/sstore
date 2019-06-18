@@ -10,6 +10,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import com.top.sstore.service.IMailService;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -22,6 +23,7 @@ import java.io.File;
  * @param: $params$
  * @return: $returns$
  */
+@Transactional
 @Service
 public class MailServiceImpl implements IMailService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -117,6 +119,7 @@ public class MailServiceImpl implements IMailService {
             logger.info("邮件已经发送。");
         } catch (MessagingException e) {
             logger.error("发送邮件时发生异常！", e);
+            throw new RuntimeException();   //  发送失败，抛异常
         }
 
 

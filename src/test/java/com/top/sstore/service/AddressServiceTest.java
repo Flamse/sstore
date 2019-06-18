@@ -54,5 +54,10 @@ public class AddressServiceTest {
 
     @Test
     public void selectCounty() {
+        Short shout = new Short((short) 90);
+        List<District> districts = addressService.selectCounty(shout);
+        for (District district : districts){
+            System.out.println(district.getName());
+        }
     }
 }

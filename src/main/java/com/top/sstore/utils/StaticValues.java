@@ -14,6 +14,13 @@ public class StaticValues {
     @Value("${pageSizeByCart}")
     private Integer pageSizeByCart;
 
+    public Integer getPageSizeBySearch() {
+        return pageSizeBySearch;
+    }
+
+    @Value("${pageSizeBySearch}")
+    private Integer pageSizeBySearch;
+
     //状态码
     @Value("${status.user.inactive}")
     private Integer userInactive;
@@ -41,6 +48,13 @@ public class StaticValues {
 
     @Value("${status.order.cancelOrder}")
     private Integer orderCancelOrder;
+
+    public String getSessionUserId() {
+        return sessionUserId;
+    }
+
+    @Value("${session.userId}")
+    private String sessionUserId;
 
     public Integer getPageSizeBySort() {
         return pageSizeBySort;

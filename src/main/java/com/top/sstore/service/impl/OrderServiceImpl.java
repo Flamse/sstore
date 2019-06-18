@@ -9,13 +9,14 @@ import com.top.sstore.service.IOrderService;
 import com.top.sstore.service.IServiceService;
 import com.top.sstore.utils.StaticValues;
 import com.top.sstore.utils.UUIDUtils;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Transactional
 @org.springframework.stereotype.Service
 public class OrderServiceImpl implements IOrderService {
     @Autowired
@@ -34,21 +35,24 @@ public class OrderServiceImpl implements IOrderService {
     /**
      * @param addressId
      * @param userId
-     * @param servIds
      * @author zh
      * @date 2019/6/6/006 21:54
      * 下单，操作两个类（order， orderitem）
      */
     @Override
-    public boolean pushOrder(Integer addressId, Integer userId, List<Integer> servIds) {
+    public boolean pushOrder(Integer addressId, Integer userId, List<Integer> cartIds) {
         Address address = addressService.selectAddressById(addressId, userId);
         if (address == null)
             return false;
-        List<Cart> carts = cartService.selectServiceInCart(userId, servIds);
+        /*获取购物车ID*/
+        List<Cart> carts = cartService.selectServiceInCart(userId, cartIds);
+
+        /*获取购物车的商品ID*/
+        List<Integer> servIds = carts.stream().map(Cart::getServId).collect(Collectors.toList());
         List<Service> services = serviceService.selectServiceOfAllByIds(servIds);
 
         //订单号
-        Integer orderId = UUIDUtils.getUUIDInOrderid();
+        Integer orderId = UUIDUtils.getUUIDInOrderId();
 
         /*商品价格 及 数量*/
         Map<Integer, BigDecimal> servicePrices = services.stream().collect(Collectors.toMap(Service::getServId, Service::getPrice));
@@ -64,9 +68,8 @@ public class OrderServiceImpl implements IOrderService {
 //        }
 
 
-        //商品ID
+        //商品ID作为key
         Set<Integer> serviceIds = servicePrices.keySet();
-
         /*计算订单项价格 及 总额*/
         Map<Integer, BigDecimal> totals = new HashMap<>();  //订单项价格
         BigDecimal totalMoney=new BigDecimal(0);        //总额
@@ -92,7 +95,6 @@ public class OrderServiceImpl implements IOrderService {
             items.add(orderitem);
         }
 
-
         /*生成订单*/
         Order order = new Order();
 
@@ -105,12 +107,23 @@ public class OrderServiceImpl implements IOrderService {
         order.setOrderCreateTime(new Date());
         order.setOrderStatus(staticValues.getOrderPushOrder()); //下单状态
 
-
+        /*添加订单信息*/
         orderMapper.insertSelective(order);
+        /*添加订单项*/
         for (Orderitem orderitem : items){
-            orderitemMapper.insertSelective(orderitem);
+            int a = orderitemMapper.insertSelective(orderitem);
+            if (a != 1) //添加失败，抛异常回滚
+                throw new RuntimeException();
+            /*修改库存*/
+            Integer volume = serviceService.selectServNum(orderitem.getServId());    //商品库存
+            Integer number = orderitem.getItemNumber();                                 //下单数量
+            Integer newVolume = volume.intValue() - number.intValue();
+            boolean b = serviceService.updateServNum(orderitem.getServId(), newVolume);
+            if (!b) //更新库存失败，抛异常回滚
+                throw new RuntimeException();
         }
-
+        /*删除购物车，成功失败无所谓*/
+        cartService.deleteServiceFromCartByIdAndUserid(cartIds, userId);
         return true;
     }
 
@@ -125,8 +138,10 @@ public class OrderServiceImpl implements IOrderService {
         example.createCriteria().andOrderIdEqualTo(orderId).andUserIdEqualTo(userId);
         Order order = new Order();
         order.setOrderStatus(staticValues.getOrderPayOrder());
-        orderMapper.updateByExampleSelective(order, example);
-        return true;
+        int a = orderMapper.updateByExampleSelective(order, example);
+        if (a == 1)
+            return true;
+        return false;
     }
 
     /**
@@ -140,8 +155,10 @@ public class OrderServiceImpl implements IOrderService {
         example.createCriteria().andOrderIdEqualTo(orderId).andUserIdEqualTo(userId);
         Order order = new Order();
         order.setOrderStatus(staticValues.getOrderDistributeOrder());
-        orderMapper.updateByExampleSelective(order, example);
-        return true;
+        int a = orderMapper.updateByExampleSelective(order, example);
+        if (a == 1)
+            return true;
+        return false;
     }
 
     /**
@@ -155,8 +172,10 @@ public class OrderServiceImpl implements IOrderService {
         example.createCriteria().andOrderIdEqualTo(orderId).andUserIdEqualTo(userId);
         Order order = new Order();
         order.setOrderStatus(staticValues.getOrderCompleteOrder());
-        orderMapper.updateByExampleSelective(order, example);
-        return true;
+        int a = orderMapper.updateByExampleSelective(order, example);
+        if (a == 1)
+            return true;
+        return false;
     }
 
     /**
@@ -170,8 +189,10 @@ public class OrderServiceImpl implements IOrderService {
         example.createCriteria().andOrderIdEqualTo(orderId).andUserIdEqualTo(userId);
         Order order = new Order();
         order.setOrderStatus(staticValues.getOrderCancelOrder());
-        orderMapper.updateByExampleSelective(order, example);
-        return true;
+        int a = orderMapper.updateByExampleSelective(order, example);
+        if (a == 1)
+            return true;
+        return false;
     }
 
     /**
@@ -184,8 +205,7 @@ public class OrderServiceImpl implements IOrderService {
     public List<Order> selectOrderOfAll(Integer userId) {
         OrderExample example = new OrderExample();
         example.createCriteria().andUserIdEqualTo(userId);
-        List<Order> orders = orderMapper.selectByExample(example);
-        return orders;
+        return orderMapper.selectByExample(example);
     }
 
     /**

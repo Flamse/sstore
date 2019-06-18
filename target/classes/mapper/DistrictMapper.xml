@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.top.sstore.dao.DistrictMapper">
+  <resultMap id="BaseResultMap" type="com.top.sstore.pojo.District">
+    <id column="disrict_id" jdbcType="SMALLINT" property="disrictId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="parent_id" jdbcType="SMALLINT" property="parentId" />
+    <result column="code" jdbcType="CHAR" property="code" />
+    <result column="order" jdbcType="TINYINT" property="order" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    disrict_id, name, parent_id, code, `order`
+  </sql>
+  <select id="selectByExample" parameterType="com.top.sstore.pojo.DistrictExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tbl_district
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tbl_district
+    where disrict_id = #{disrictId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    delete from tbl_district
+    where disrict_id = #{disrictId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.top.sstore.pojo.DistrictExample">
+    delete from tbl_district
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.top.sstore.pojo.District">
+    insert into tbl_district (disrict_id, name, parent_id, 
+      code, order)
+    values (#{disrictId,jdbcType=SMALLINT}, #{name,jdbcType=VARCHAR}, #{parentId,jdbcType=SMALLINT}, 
+      #{code,jdbcType=CHAR}, #{order,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.top.sstore.pojo.District">
+    insert into tbl_district
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="disrictId != null">
+        disrict_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="order != null">
+        order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="disrictId != null">
+        #{disrictId,jdbcType=SMALLINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=SMALLINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=CHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.top.sstore.pojo.DistrictExample" resultType="java.lang.Long">
+    select count(*) from tbl_district
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tbl_district
+    <set>
+      <if test="record.disrictId != null">
+        disrict_id = #{record.disrictId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentId != null">
+        parent_id = #{record.parentId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.code != null">
+        code = #{record.code,jdbcType=CHAR},
+      </if>
+      <if test="record.order != null">
+        order = #{record.order,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tbl_district
+    set disrict_id = #{record.disrictId,jdbcType=SMALLINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      parent_id = #{record.parentId,jdbcType=SMALLINT},
+      code = #{record.code,jdbcType=CHAR},
+      order = #{record.order,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.top.sstore.pojo.District">
+    update tbl_district
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=SMALLINT},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=CHAR},
+      </if>
+      <if test="order != null">
+        order = #{order,jdbcType=TINYINT},
+      </if>
+    </set>
+    where disrict_id = #{disrictId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.top.sstore.pojo.District">
+    update tbl_district
+    set name = #{name,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=SMALLINT},
+      code = #{code,jdbcType=CHAR},
+      order = #{order,jdbcType=TINYINT}
+    where disrict_id = #{disrictId,jdbcType=SMALLINT}
+  </update>
+</mapper>

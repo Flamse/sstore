@@ -1,6 +1,7 @@
 package com.top.sstore.service;
 
 import com.top.sstore.pojo.User;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ public class UserServicesTests {
     @Test
     public void login(){
         User user = new User();
-        user.setUserName("张登杰");
+        user.setUserName("张杰");
         user.setUserPassword("456789");
         user.setUserEmail("1308140539@qq.com");
 //        user.setUserPhone("15270476656");
@@ -27,9 +28,19 @@ public class UserServicesTests {
     }
 
     @Test
-    public void check(){
-//        System.out.println(userService.checkUsername("张鸿"));
-//        System.out.println(userService.checkUsername("张三"));
+    public void checkUserId(){
+        System.out.println(userService.checkUserId(5));
+        System.out.println(userService.checkUserId(6));
+    }
+
+    @Test
+    public void userLoginTest(){
+        User user = new User();
+//        user.setUserName("张登杰");
+        user.setUserName("1308140539@qq.com");
+        user.setUserPassword(DigestUtils.md5Hex("456789"));
+        User user1 = userService.userLogin(user);
+        System.out.println(user1.getUserName());
     }
 
     @Test
@@ -42,10 +53,8 @@ public class UserServicesTests {
     }
 
     @Test
-    public void findUser(){
-        User user = new User();
-        user.setUserId(1);
-        System.out.println(userService.showUser(user).getUserName());
+    public void showUser(){
+        System.out.println(userService.showUserById(1).getUserName());
     }
 
 }
