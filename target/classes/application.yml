@@ -31,7 +31,8 @@ spring:
     #########JDBC基本属性
     driver-class-name: com.mysql.cj.jdbc.Driver
     #&useAffectedRows=true：update返回值行影响数目，返回Rows-Affect数目
-    url: jdbc:mysql://localhost:3306/sstore?useSsl=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+#    url: jdbc:mysql://192.168.1.102:3306/sstore?useSsl=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://localhost:3306/sstore?useSsl=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 15270476656
     ##########druid相关配置
@@ -54,6 +55,11 @@ spring:
       min-evictable-idle-time-millis: 300000
       #监控统计拦截的filters,内置filter
       filters: stat,wall
+
+  #解决controller层json封装时产生的时区问题
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 
 #  邮件setting
   mail:
@@ -86,8 +92,12 @@ pagehelper:
 
 #一级分类最大展示数
 pageSizeBySort: 16
+#购物车 最大值
 pageSizeByCart: 10
+#搜索列表 分页
 pageSizeBySearch: 50
+#首页推荐 最大值
+pageSizeByRecommend: 10
 
 status:
   #用户账号状态码
@@ -122,3 +132,4 @@ ipAddress:
 
 session:
   userId: userAccountId
+

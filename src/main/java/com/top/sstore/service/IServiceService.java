@@ -31,9 +31,9 @@ public interface IServiceService {
     /**
      * @author zh
      * @date 2019/6/6/006 20:24
-     * 查找所有商品 通过ID群，购物车
+     * 查找所有商品 通过ID群
      */
-    PageInfo<Service> selectServiceOfAllByIds(List<Integer> serviceIds, Integer pageNum);
+    PageInfo<Service> selectServiceOfAllByIds(List<Integer> serviceIds, Integer pageNum, String orderBy);
 
     /**
      * @author zh

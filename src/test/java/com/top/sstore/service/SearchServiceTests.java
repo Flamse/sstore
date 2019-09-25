@@ -51,7 +51,7 @@ public class SearchServiceTests {
         List<String> list = new ArrayList<>();
         list.add("小米");
         list.add("创维");
-        PageInfo<Service> services = searchService.selectServiceByLabel(list, 1);
+        PageInfo<Service> services = searchService.selectServiceByLabel(list, 1, "serv_id");
         for (Service service : services.getList()){
             System.out.println(service.getServId());
         }
@@ -70,11 +70,10 @@ public class SearchServiceTests {
         List<String> list = new ArrayList<>();
         list.add("tcl");
 //        list.add("65英寸");
-        PageInfo info = searchService.selectServiceByLabel(list, 1);
+        PageInfo info = searchService.selectServiceByLabel(list, 1, "serv_id");
         for (Service service : (List<Service>)info.getList()){
             serviceService.linkLabelToName(service);
             System.out.println(service.getLabelId()+service.getServId());
         }
     }
-
 }

@@ -24,10 +24,11 @@ public class ServiceServiceTests {
     @Test
     public void selectServiceByIdTest(){
 //        Service service = serviceService.selectServiceById(2);
-        Service service = serviceService.selectServiceById(999);
-//        if (service != null)
-            System.out.println(service.getLabelId());
-//        System.out.println("没找到");
+        Service service = serviceService.selectServiceById(45);
+        if (service != null)
+            System.out.println(service.getServCreatetime());
+        else
+            System.out.println("没找到");
     }
 
     @Test

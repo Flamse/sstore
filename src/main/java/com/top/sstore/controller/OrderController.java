@@ -1,5 +1,7 @@
 package com.top.sstore.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.top.sstore.pojo.Order;
 import com.top.sstore.pojo.Orderitem;
 import com.top.sstore.pojo.Picture;
@@ -88,6 +90,12 @@ public class OrderController {
     public Message s_showOne(Integer orderId, HttpSession session){
         Integer userId = (Integer)session.getAttribute("userAccountId");
         Order order = orderService.selectOrderById(userId, orderId);
+        //System.out.println(order.getOrderCreateTime());
+//        try {
+//            System.out.println(new ObjectMapper().writeValueAsString(order));
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//        }
         List<Orderitem> orderitems = orderService.selectItemByOrderId(orderId);
         List<Integer> serviceIds = orderitems.stream().map(Orderitem::getServId).collect(Collectors.toList());
 

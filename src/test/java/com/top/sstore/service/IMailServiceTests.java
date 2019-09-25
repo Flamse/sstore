@@ -28,6 +28,6 @@ public class IMailServiceTests {
 
     @Test
     public void sendHtmlMail() {
-        mailService.sendHtmlMail("1048605630@qq.com","神兽保佑无BUG","<a href='http://www.baidu.com'>check me</a>");
+        mailService.sendHtmlMail("1@qq.com","神兽保佑无BUG","<a href='http://www.baidu.com'>check me</a>");
     }
 }

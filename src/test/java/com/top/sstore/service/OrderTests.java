@@ -34,4 +34,9 @@ public class OrderTests {
 //        list.add(3);
         orderService.pushOrder(1,5,list);
     }
+
+    @Test
+    public void test(){
+        System.out.println(orderService.selectOrderById(7, 775633562).getOrderCreateTime());
+    }
 }

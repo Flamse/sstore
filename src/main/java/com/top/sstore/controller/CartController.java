@@ -75,6 +75,9 @@ public class CartController {
         //需要商品的 ID和数量。需要对cart校验
         cart.setUserId(userId);
 
+        if (cart.getServNumber() <= 0)
+            return Message.fail("数量非法");
+
         Cart cart1 = cartService.selectCartByServId(cart.getServId(), userId);
         if (cart1 != null){ //购物车有这个商品
             Integer serviceNumber = cart1.getServNumber().intValue()+cart.getServNumber().intValue();
@@ -85,7 +88,7 @@ public class CartController {
         boolean b = cartService.addServiceToCart(cart);
         if (b)
             return Message.success();
-        return Message.fail();
+        return Message.fail("添加失败");
     }
 
     /**

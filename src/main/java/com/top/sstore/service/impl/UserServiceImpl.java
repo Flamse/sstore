@@ -43,7 +43,6 @@ public class UserServiceImpl implements IUserService {
         //查找用户名、邮箱是否重复：邮箱、用户名唯一性
         example.createCriteria().andUserNameEqualTo(user.getUserName());
         example.or().andUserEmailEqualTo(user.getUserEmail());      //  ||
-
 //        example.or().andUserNameEqualTo(user.getUserName()).andUserEmailEqualTo(user.getUserEmail()));    // &&
 //            example.or().andUserEmailEqualTo(user.getUserEmail());
 //            example.or().andUserPhoneEqualTo(user.getUserPhone());
@@ -56,25 +55,27 @@ public class UserServiceImpl implements IUserService {
             user.setUserCdk(userCdk);
             //时间戳
             user.setCreateTime(new Date());
+
             int s = userMapper.insertSelective(user);
             if (s == 1){    //确定注册完成，发送验证码
                 //发送邮件，包含CDK
                 //url
 //                    String url = "http://"+staticValues.getTomcatIP()+"/account/activate?userName="+user.getUserName()+"&userCdk="+userCdk;
 //                    mailService.sendHtmlMail(user.getUserEmail(),"最后一步：激活账号", "<a href="+url+">点击我完成注册，网上商城</a>");
+                /*发邮件*/
                 boolean b =userService.sendEmail(user);
                 if (b){
-                    logger.info("send email unsuccess");
+                    logger.info("邮件发送成功");
                     return true;
                 } else {
                     logger.error("邮件发送失败");
-                    throw new RuntimeException();   //邮件发送失败，抛异常
+                    throw new RuntimeException();   //邮件发送失败，抛异常回滚珊数据
                 }
-            }else {
-                logger.warn(user.getUserName()+"注册失败");
+            }else {     //注册失败
+                logger.error(user.getUserName()+"注册失败");
                 return false;
             }
-        }else{
+        }else{  //用户名或密码重复
             logger.warn("用户已存在");
             return false;
         }
@@ -83,7 +84,7 @@ public class UserServiceImpl implements IUserService {
     /**
      * @author zh
      * @date 2019/6/6/006 8:22
-     * 发送激活邮件，需要用户名或邮箱、CDK激活码,不需要密码
+     * 发送激活邮件，需要用户名、邮箱、CDK激活码
      */
     @Override
     public boolean sendEmail(User user){
@@ -96,15 +97,16 @@ public class UserServiceImpl implements IUserService {
                     mailService.sendHtmlMail(user.getUserEmail(),"最后一步：激活账号", "<a href="+url+">点击我完成注册，网上商城</a>");
                     logger.info("邮件已发送！");
                     return true;
-                }
-            }else if (user.getUserEmail() != null){
+                } else
+                    return false;
+            }/*else if (user.getUserEmail() != null){
                 String url = "http://"+staticValues.getTomcatIP()+"/account/activate?userName="+user.getUserEmail()+"&userCdk="+user.getUserCdk();
                 logger.info("用户开始主动激活。");
                 mailService.sendHtmlMail(user.getUserEmail(),"最后一步：激活账号", "<a href="+url+">点击我完成注册，网上商城</a>");
                 logger.info("邮件已发送！");
                 return true;
-            }else {
-                logger.info("用户信息不全，无法发送！！");
+            }*/else {
+                throw new RuntimeException();
             }
         }
         return false;
@@ -214,11 +216,11 @@ public class UserServiceImpl implements IUserService {
         UserExample userExample = new UserExample();
         userExample.createCriteria().andUserIdEqualTo(userId).andUserPasswordEqualTo(oldPassword);
         long a = userMapper.countByExample(userExample);
-        if (a == 1) {
+        if (a == 1) {   //用户校验
             User user = new User();
             user.setUserId(userId);
             user.setUserPassword(newPassword);
-            int i = userMapper.updateByPrimaryKeySelective(user);
+            int i = userMapper.updateByPrimaryKeySelective(user);//修改密码
             if (i == 1)
                 return true;
         }

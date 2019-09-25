@@ -71,7 +71,7 @@ public class OrderServiceImpl implements IOrderService {
         //商品ID作为key
         Set<Integer> serviceIds = servicePrices.keySet();
         /*计算订单项价格 及 总额*/
-        Map<Integer, BigDecimal> totals = new HashMap<>();  //订单项价格
+        Map<Integer, BigDecimal> totals = new HashMap<>();  //订单项总价格
         BigDecimal totalMoney=new BigDecimal(0);        //总额
         for (Integer id : serviceIds) {
             BigDecimal money = servicePrices.get(id).multiply(new BigDecimal(serviceNums.get(id)));
@@ -118,8 +118,11 @@ public class OrderServiceImpl implements IOrderService {
             Integer volume = serviceService.selectServNum(orderitem.getServId());    //商品库存
             Integer number = orderitem.getItemNumber();                                 //下单数量
             Integer newVolume = volume.intValue() - number.intValue();
-            boolean b = serviceService.updateServNum(orderitem.getServId(), newVolume);
-            if (!b) //更新库存失败，抛异常回滚
+            if (newVolume.intValue() >= 0) {    //库存不会降为0
+                boolean b = serviceService.updateServNum(orderitem.getServId(), newVolume);
+                if (!b) //更新库存失败，抛异常回滚
+                    throw new RuntimeException();
+            }else
                 throw new RuntimeException();
         }
         /*删除购物车，成功失败无所谓*/

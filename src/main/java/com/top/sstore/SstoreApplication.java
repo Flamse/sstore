@@ -5,6 +5,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -31,6 +32,7 @@ import java.sql.SQLException;
 //@EnableTransactionManagement    //开启事务支持，加了@Transactional，@EnableTransactionManagement没必要了
 @SpringBootApplication(exclude = ErrorMvcAutoConfiguration.class)   // 排除默认的异常处理逻辑
 @MapperScan("com.top.sstore.dao")
+@ServletComponentScan(basePackages = "com.top.sstore.utils")
 public class SstoreApplication {
 
     public static void main(String[] args) throws SQLException {

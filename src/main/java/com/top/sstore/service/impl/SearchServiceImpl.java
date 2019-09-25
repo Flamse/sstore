@@ -77,7 +77,7 @@ public class SearchServiceImpl implements ISearchService {
     }
 
     @Override
-    public PageInfo<Service> selectServiceByLabel(List<String> labelBits, Integer pageNum) {
+    public PageInfo<Service> selectServiceByLabel(List<String> labelBits, Integer pageNum, String orderBy) {
         List<Integer> serviceIds = new ArrayList<>();
         for (String label : labelBits) {
             //初步匹配标签
@@ -103,7 +103,7 @@ public class SearchServiceImpl implements ISearchService {
 //                services.retainAll(services1);    //对象求交集，永远没有交集
         }
 
-        PageInfo<Service> services = serviceService.selectServiceOfAllByIds(serviceIds, pageNum);
+        PageInfo<Service> services = serviceService.selectServiceOfAllByIds(serviceIds, pageNum, orderBy);
         /*循环替换*/
         for (Service service : services.getList()){
             serviceService.linkLabelToName(service);
@@ -129,8 +129,7 @@ public class SearchServiceImpl implements ISearchService {
 
         /*商品名 乱序， order in 排序*/
         String s="";
-        for (Integer labelId:
-            labelIds ) {
+        for (Integer labelId : labelIds ) {
             s+=(","+labelId);
         }
         example.setOrderByClause("field(label_id"+s+")");

@@ -57,8 +57,10 @@ public class UserController {
     public Message activate(User user){
 //        System.out.println(user.getUserName()+user.getUserPassword());
 //        return userService.updateStatus(user);
-        userService.updateStatus(user);
-        return Message.success();
+        boolean b = userService.updateStatus(user);
+        if (b)
+            return Message.success();
+        return Message.fail("激活失败");
     }
 
 
@@ -73,14 +75,14 @@ public class UserController {
                 if (user.getUserPassword() != null) {
                     user.setUserPassword(DigestUtils.md5Hex(user.getUserPassword()));   //MD5加密，32位
                 }
-                //            System.out.println(user.getUserPassword());
+                //            System.out.println(user.getUserPassword));(
                 User user1 = userService.userLogin(user);
                 if (user1 != null) {
                     //把用户信息存入session
                     session.setAttribute("userAccountId", user1.getUserId());
                     return Message.success().add("username", user1.getUserName());
                 } else {
-                    return Message.fail();
+                    return Message.fail("账号或密码错误");
                 }
 
                 //            Integer a = user1.getUserId();  //ID由Integer转化成String
@@ -96,7 +98,7 @@ public class UserController {
                 //            System.out.println(cookie.getValue());
                 //            response.addCookie(cookie);
             } else {  //账号未激活
-                return Message.fail();
+                return Message.fail("未激活");
             }
             ////        Session.Cookie cookie = new Session.Cookie();
             //        cookie.setName(user1.getUserName());
@@ -122,14 +124,16 @@ public class UserController {
         }
     }
 
-    @PostMapping("/changePassword")
+    @PostMapping("/changePsd")
     public Message s_changePassword(HttpSession session, String oldPsd, String newPsd){
         String oldPassword = DigestUtils.md5Hex(oldPsd);
         String newPassword = DigestUtils.md5Hex(newPsd);
         Integer userId = (Integer)session.getAttribute(staticValues.getSessionUserId());
         boolean b = userService.updatePassword(userId, oldPassword, newPassword);
-        if (b)
+        if (b) {
+            session.removeAttribute(staticValues.getSessionUserId());
             return Message.success();
+        }
         return Message.fail();
     }
 
@@ -151,7 +155,7 @@ public class UserController {
     public Message checkUsername(String username){
         boolean b = userService.checkUsername(username);
         if (b)
-            return Message.fail();
+            return Message.fail("用户名重复");
         return Message.success();
     }
 
@@ -168,7 +172,7 @@ public class UserController {
     }
 
     /*test*/
-//    @GetMapping("/showUser")
+    @GetMapping("/showUser")
     public Message findUser(HttpSession session){
 //        System.out.println("==========");
 //        System.out.println(request.getRequestURI());

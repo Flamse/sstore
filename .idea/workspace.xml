@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="sstore" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0738a50c-bcbb-439c-a3ce-6b0d68bbde10" name="默认" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,20 +42,24 @@
     <session id="2065590289">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="29" />
+          <entry key="project.closed" value="37" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.38" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.38" value="2" />
           <entry key="project.open.time.41" value="2" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.43" value="2" />
           <entry key="project.open.time.45" value="1" />
           <entry key="project.open.time.47" value="1" />
-          <entry key="project.open.time.48" value="1" />
+          <entry key="project.open.time.48" value="2" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.51" value="1" />
-          <entry key="project.open.time.52" value="1" />
+          <entry key="project.open.time.52" value="2" />
           <entry key="project.open.time.53" value="5" />
           <entry key="project.open.time.54" value="2" />
           <entry key="project.open.time.55" value="1" />
@@ -63,34 +72,35 @@
           <entry key="project.open.time.70" value="1" />
           <entry key="project.open.time.75" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.open.time.92" value="1" />
+          <entry key="project.opened" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="102" />
+          <entry key="class" value="103" />
           <entry key="css" value="3" />
           <entry key="gif" value="1" />
           <entry key="html" value="13" />
-          <entry key="java" value="1103" />
+          <entry key="java" value="1196" />
           <entry key="js" value="6" />
           <entry key="sql" value="2" />
-          <entry key="xml" value="135" />
-          <entry key="yml" value="46" />
+          <entry key="xml" value="145" />
+          <entry key="yml" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="102" />
+          <entry key="CLASS" value="103" />
           <entry key="CSS" value="3" />
           <entry key="HTML" value="13" />
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="1103" />
+          <entry key="JAVA" value="1196" />
           <entry key="JavaScript" value="6" />
           <entry key="SQL" value="1" />
           <entry key="Scratch" value="1" />
-          <entry key="XML" value="135" />
-          <entry key="YAML" value="46" />
+          <entry key="XML" value="145" />
+          <entry key="YAML" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -98,20 +108,20 @@
           <entry key="dummy" value="35" />
           <entry key="ft" value="33" />
           <entry key="html" value="1040" />
-          <entry key="java" value="37661" />
+          <entry key="java" value="40193" />
           <entry key="txt" value="42" />
-          <entry key="xml" value="519" />
-          <entry key="yml" value="1410" />
+          <entry key="xml" value="580" />
+          <entry key="yml" value="1621" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1040" />
-          <entry key="JAVA" value="37661" />
+          <entry key="JAVA" value="40193" />
           <entry key="PLAIN_TEXT" value="77" />
           <entry key="VTL" value="33" />
-          <entry key="XML" value="519" />
-          <entry key="YAML" value="1410" />
+          <entry key="XML" value="580" />
+          <entry key="YAML" value="1621" />
         </counts>
       </usages-collector>
     </session>
@@ -122,82 +132,57 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/SstoreApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+            <state relative-caret-position="162">
+              <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/ServiceServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3477">
-              <caret line="196" column="46" lean-forward="true" selection-start-line="196" selection-start-column="46" selection-end-line="196" selection-end-column="46" />
+            <state relative-caret-position="684">
+              <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/SortServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/AutoReceiptJob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="133">
+              <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/UserServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/SpringUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3458">
-              <caret line="196" column="28" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/UserServicesTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/ServiceServiceTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+            <state relative-caret-position="703">
+              <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1332#1333#0" expanded="true" />
+                <element signature="e#1373#1374#0" expanded="true" />
+                <element signature="e#1442#1443#0" expanded="true" />
+                <element signature="e#1502#1503#0" expanded="true" />
+                <element signature="e#1573#1574#0" expanded="true" />
+                <element signature="e#1634#1635#0" expanded="true" />
+                <element signature="e#1726#1727#0" expanded="true" />
+                <element signature="e#1793#1794#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SearchServiceTests.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/ContextListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="28" column="71" lean-forward="true" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/PictureServiceTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+            <state relative-caret-position="425">
+              <caret line="61" column="4" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -208,9 +193,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -239,6 +224,10 @@
       <find>countByExample</find>
       <find>describe</find>
       <find>checkU</find>
+      <find>commons</find>
+      <find>send</find>
+      <find>setSen</find>
+      <find>timer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,57 +243,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ThirdsortMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ActivityMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/pojo/Firstsort.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/ServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IAddressService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IAdminService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/ISortService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/dao/TestServiceLabelMapper.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/TestUserServices.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IOrderService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/Message.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/PictureServiceTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/ServiceServiceTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/common/GlobalExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/DistrictMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/Study/LogAspect.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/AddressServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/SortController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/AddressController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/ISearchService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/ICartService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/utils/TestMD5.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/CartController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/SearchServiceTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/common/LogAspect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/ServiceController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/OrderTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IPictureService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/OrderController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/StaticValues.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IServiceService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/utils/TestComment.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/UUIDUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/PictureServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/AddressServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/CartServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/MailServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/ServiceServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/UserServicesTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/SortServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/SstoreApplication.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/IMailServiceTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/MailServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/checkEmail.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/utils/checkEmailTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/OrderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/CheckEmail.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/CartController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/ServiceServiceTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/OrderTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IServiceService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/SearchServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/ISearchService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/ServiceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/top/sstore/service/SearchServiceTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/ServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IRecomment.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IRecommentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/StaticValues.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/RecommentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/IPushService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/PushServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/controller/PushController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/ServletInitializer.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/SstoreApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/SpringUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/AutoReceiptJob.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/top/sstore/utils/ContextListener.java" />
       </list>
     </option>
   </component>
@@ -343,11 +332,6 @@
           <item name="sstore" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="sstore" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
-        </path>
       </expand>
       <select />
     </treeState>
@@ -358,10 +342,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="50" />
+    <option name="x" value="1050" />
+    <option name="y" value="55" />
     <option name="width" value="1290" />
-    <option name="height" value="970" />
+    <option name="height" value="975" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -519,7 +503,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -551,13 +535,35 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="sstore" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sstore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sstore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sstore" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sstore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -569,21 +575,21 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1560872891126" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561029786805" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="D:/Program Files/Git/git-cmd.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.29701835" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.top.sstore.service" />
       <recent name="com.top.sstore.utils" />
+      <recent name="com.top.sstore.service" />
       <recent name="com.top.sstore.entity" />
       <recent name="com.top.sstore.dao" />
     </key>
@@ -627,8 +633,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.SstoreApplication">
-    <configuration name="UUIDUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.top.sstore.utils.UUIDUtils" />
+    <configuration name="CheckEmail" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.top.sstore.utils.CheckEmail" />
       <module name="sstore" />
       <extension name="coverage">
         <pattern>
@@ -640,7 +646,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SortServiceTest.addFirstsort" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="IMailServiceTests.sendHtmlMail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sstore" />
       <extension name="coverage">
         <pattern>
@@ -649,24 +655,56 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.top.sstore.service" />
-      <option name="MAIN_CLASS_NAME" value="com.top.sstore.service.SortServiceTest" />
-      <option name="METHOD_NAME" value="addFirstsort" />
+      <option name="MAIN_CLASS_NAME" value="com.top.sstore.service.IMailServiceTests" />
+      <option name="METHOD_NAME" value="sendHtmlMail" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestComment.getOrderId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="sstore" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.top.sstore.utils.*" />
+          <option name="PATTERN" value="com.top.sstore.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.top.sstore.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.top.sstore.utils.TestComment" />
-      <option name="METHOD_NAME" value="getOrderId" />
+      <option name="PACKAGE_NAME" value="com.top.sstore.service" />
+      <option name="MAIN_CLASS_NAME" value="com.top.sstore.service.OrderTests" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchServiceTests.selectServiceByLabelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sstore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.top.sstore.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.top.sstore.service" />
+      <option name="MAIN_CLASS_NAME" value="com.top.sstore.service.SearchServiceTests" />
+      <option name="METHOD_NAME" value="selectServiceByLabelTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServiceServiceTests.selectServiceByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="sstore" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.top.sstore.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.top.sstore.service" />
+      <option name="MAIN_CLASS_NAME" value="com.top.sstore.service.ServiceServiceTests" />
+      <option name="METHOD_NAME" value="selectServiceByIdTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -688,38 +726,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServicesTests.checkUserId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sstore" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.top.sstore.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.top.sstore.service" />
-      <option name="MAIN_CLASS_NAME" value="com.top.sstore.service.UserServicesTests" />
-      <option name="METHOD_NAME" value="checkUserId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServicesTests.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="sstore" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.top.sstore.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.top.sstore.service" />
-      <option name="MAIN_CLASS_NAME" value="com.top.sstore.service.UserServicesTests" />
-      <option name="METHOD_NAME" value="login" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SstoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="sstore" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.top.sstore.SstoreApplication" />
@@ -730,19 +736,19 @@
     <list>
       <item itemvalue="Spring Boot.SstoreApplication" />
       <item itemvalue="JUnit.TestServiceLabelMapper.test1" />
-      <item itemvalue="JUnit.UserServicesTests.login" />
-      <item itemvalue="JUnit.TestComment.getOrderId" />
-      <item itemvalue="Application.UUIDUtils" />
-      <item itemvalue="JUnit.UserServicesTests.checkUserId" />
-      <item itemvalue="JUnit.SortServiceTest.addFirstsort" />
+      <item itemvalue="JUnit.SearchServiceTests.selectServiceByLabelTest" />
+      <item itemvalue="JUnit.IMailServiceTests.sendHtmlMail" />
+      <item itemvalue="Application.CheckEmail" />
+      <item itemvalue="JUnit.ServiceServiceTests.selectServiceByIdTest" />
+      <item itemvalue="JUnit.OrderTests.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SortServiceTest.addFirstsort" />
-        <item itemvalue="JUnit.UserServicesTests.checkUserId" />
-        <item itemvalue="JUnit.UserServicesTests.login" />
-        <item itemvalue="Application.UUIDUtils" />
-        <item itemvalue="JUnit.TestComment.getOrderId" />
+        <item itemvalue="JUnit.OrderTests.test" />
+        <item itemvalue="JUnit.ServiceServiceTests.selectServiceByIdTest" />
+        <item itemvalue="Application.CheckEmail" />
+        <item itemvalue="JUnit.IMailServiceTests.sendHtmlMail" />
+        <item itemvalue="JUnit.SearchServiceTests.selectServiceByLabelTest" />
       </list>
     </recent_temporary>
   </component>
@@ -792,43 +798,51 @@
       <workItem from="1560815976855" duration="40757000" />
       <workItem from="1560869718173" duration="258000" />
       <workItem from="1560871076518" duration="1851000" />
+      <workItem from="1560902951532" duration="15536000" />
+      <workItem from="1560931358926" duration="10946000" />
+      <workItem from="1560988499323" duration="18419000" />
+      <workItem from="1561021774308" duration="3040000" />
+      <workItem from="1561025299226" duration="1120000" />
+      <workItem from="1561026503857" duration="444000" />
+      <workItem from="1561027245169" duration="2563000" />
+      <workItem from="1561076588049" duration="2757000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestComment_getOrderId - 2019.06.18 at 20h 02m 29s.xml">
-      <configuration name="TestComment.getOrderId" configurationId="JUnit" />
+    <history-entry file="SearchServiceTests_selectServiceByLabelTest - 2019.06.19 at 08h 16m 13s.xml">
+      <configuration name="SearchServiceTests.selectServiceByLabelTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServicesTests_login - 2019.06.18 at 21h 34m 46s.xml">
-      <configuration name="UserServicesTests.login" configurationId="JUnit" />
+    <history-entry file="IMailServiceTests_sendHtmlMail - 2019.06.19 at 08h 59m 01s.xml">
+      <configuration name="IMailServiceTests.sendHtmlMail" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServicesTests_checkUserId - 2019.06.18 at 21h 47m 53s.xml">
-      <configuration name="UserServicesTests.checkUserId" configurationId="JUnit" />
+    <history-entry file="IMailServiceTests_sendHtmlMail - 2019.06.19 at 08h 59m 58s.xml">
+      <configuration name="IMailServiceTests.sendHtmlMail" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UserServicesTests_checkUserId - 2019.06.18 at 21h 48m 26s.xml">
-      <configuration name="UserServicesTests.checkUserId" configurationId="JUnit" />
+    <history-entry file="ServiceServiceTests_selectServiceByIdTest - 2019.06.19 at 16h 29m 56s.xml">
+      <configuration name="ServiceServiceTests.selectServiceByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SortServiceTest_addFirstsort - 2019.06.18 at 21h 53m 48s.xml">
-      <configuration name="SortServiceTest.addFirstsort" configurationId="JUnit" />
+    <history-entry file="ServiceServiceTests_selectServiceByIdTest - 2019.06.19 at 16h 30m 24s.xml">
+      <configuration name="ServiceServiceTests.selectServiceByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SortServiceTest_addFirstsort - 2019.06.18 at 21h 54m 31s.xml">
-      <configuration name="SortServiceTest.addFirstsort" configurationId="JUnit" />
+    <history-entry file="ServiceServiceTests_selectServiceByIdTest - 2019.06.19 at 16h 31m 00s.xml">
+      <configuration name="ServiceServiceTests.selectServiceByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SortServiceTest_addFirstsort - 2019.06.18 at 21h 55m 35s.xml">
-      <configuration name="SortServiceTest.addFirstsort" configurationId="JUnit" />
+    <history-entry file="ServiceServiceTests_selectServiceByIdTest - 2019.06.19 at 16h 45m 10s.xml">
+      <configuration name="ServiceServiceTests.selectServiceByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SortServiceTest_addFirstsort - 2019.06.18 at 21h 57m 30s.xml">
-      <configuration name="SortServiceTest.addFirstsort" configurationId="JUnit" />
+    <history-entry file="ServiceServiceTests_selectServiceByIdTest - 2019.06.19 at 17h 33m 33s.xml">
+      <configuration name="ServiceServiceTests.selectServiceByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SortServiceTest_addFirstsort - 2019.06.18 at 21h 58m 15s.xml">
-      <configuration name="SortServiceTest.addFirstsort" configurationId="JUnit" />
+    <history-entry file="OrderTests_test - 2019.06.19 at 17h 36m 53s.xml">
+      <configuration name="OrderTests.test" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="SortServiceTest_addFirstsort - 2019.06.18 at 22h 02m 22s.xml">
-      <configuration name="SortServiceTest.addFirstsort" configurationId="JUnit" />
+    <history-entry file="OrderTests_test - 2019.06.19 at 17h 40m 49s.xml">
+      <configuration name="OrderTests.test" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="541393000" />
+    <option name="totallyTimeSpent" value="596218000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,7 +857,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4890625" visible="true" weight="0.24128686" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4890625" visible="true" weight="0.27412868" />
       <window_info id="Structure" order="1" sideWeight="0.5117371" side_tool="true" weight="0.24798928" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -853,19 +867,19 @@
       <window_info id="Web" order="7" sideWeight="0.509915" side_tool="true" weight="0.33310992" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.825779" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984584" weight="0.91784704" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4984584" weight="0.83144474" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.1898017" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.22096318" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.13861386" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5020107" side_tool="true" weight="0.87818694" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32956153" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
-      <window_info anchor="bottom" id="调试" order="14" sideWeight="0.49798927" weight="0.85835695" />
+      <window_info anchor="bottom" id="调试" order="14" sideWeight="0.49798927" weight="0.062322944" />
       <window_info anchor="bottom" id="缩略图" order="15" weight="0.32956153" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -874,7 +888,7 @@
       <window_info anchor="right" id="调色板" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" weight="0.18498659" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.20509383" />
       <window_info anchor="right" id="Database" order="8" weight="0.2077748" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.19772118" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.3297587" />
@@ -928,272 +942,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunAfterTestClassCallbacks.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunBeforeTestClassCallbacks.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="240" selection-start-line="240" selection-end-line="240" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/statements/SpringRepeat.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunAfterTestMethodCallbacks.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunBeforeTestMethodCallbacks.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunAfterTestExecutionCallbacks.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-test/5.1.7.RELEASE/spring-test-5.1.7.RELEASE.jar!/org/springframework/test/context/junit4/statements/RunBeforeTestExecutionCallbacks.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/CartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="74" column="8" lean-forward="true" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/IPictureService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/StaticValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/IServiceService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="81" column="18" lean-forward="true" selection-start-line="81" selection-start-column="18" selection-end-line="81" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_74/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="1464" column="27" lean-forward="true" selection-start-line="1464" selection-start-column="27" selection-end-line="1464" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/utils/TestStaticValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/IUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="96" column="5" lean-forward="true" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/OrderTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="21" column="15" lean-forward="true" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/AddressServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="36" column="23" lean-forward="true" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/common/LogAspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="59" column="50" selection-start-line="59" selection-start-column="40" selection-end-line="59" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/SortController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="46" column="34" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/ISortService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/AddressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/SstoreApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/IAddressService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/mbg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/dao/SortMapperTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/UUIDUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding>
-            <element signature="e#113#114#0" expanded="true" />
-            <element signature="e#180#181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/Study/LogAspect.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/Study/TestAOP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="50" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/ServiceController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="20" column="25" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/AddressServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/CartServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="20" column="16" lean-forward="true" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/MailServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2033">
-          <caret line="121" column="56" selection-start-line="121" selection-start-column="56" selection-end-line="121" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="116" column="20" lean-forward="true" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1204,80 +956,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/SearchServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/ServiceServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3477">
-          <caret line="196" column="46" lean-forward="true" selection-start-line="196" selection-start-column="46" selection-end-line="196" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/SortServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-841">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3458">
-          <caret line="196" column="28" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/UserServicesTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/ServiceServiceTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/utils/TestMD5.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="48" column="41" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/PictureServiceTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1288,10 +970,339 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/PictureServiceTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SortServiceTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/UserServicesTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="32" column="52" selection-start-line="32" selection-start-column="52" selection-end-line="32" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/DistrictMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="69" column="46" lean-forward="true" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../repo/org/springframework/spring-context-support/5.1.7.RELEASE/spring-context-support-5.1.7.RELEASE.jar!/org/springframework/mail/javamail/JavaMailSender.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/SortServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/utils/checkEmailTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/pojo/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/IMailServiceTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="25" column="35" lean-forward="true" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/CheckEmail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/pojo/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/CartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/MailServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/UserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_74/src.zip!/java/sql/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/OrderTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="39" column="62" lean-forward="true" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/ServiceServiceTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ServiceLabelMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ServiceMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="102" column="42" selection-start-line="102" selection-start-column="22" selection-end-line="102" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="88" column="4" lean-forward="true" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/pojo/ServiceExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/top/sstore/service/SearchServiceTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="28" column="71" lean-forward="true" selection-start-line="28" selection-start-column="71" selection-end-line="28" selection-end-column="71" />
+        <state relative-caret-position="232">
+          <caret line="72" column="74" lean-forward="true" selection-start-line="72" selection-start-column="74" selection-end-line="72" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/IServiceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/IUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="73" column="69" lean-forward="true" selection-start-line="73" selection-start-column="69" selection-end-line="73" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/StaticValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="577">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/ResponseResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/ISearchService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/IPushService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="36" lean-forward="true" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/PushServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="41" column="24" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/ServletInitializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/PushController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_74/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="473" column="11" selection-start-line="473" selection-start-column="11" selection-end-line="473" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/pojo/Index.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/SearchServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="117" column="16" selection-start-line="117" selection-start-column="16" selection-end-line="117" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/OrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1197">
+          <caret line="77" column="22" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/service/impl/ServiceServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="17" selection-start-line="17" selection-end-line="17" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/controller/ServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="51" column="51" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/SstoreApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="33" column="33" lean-forward="true" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4237">
+          <caret line="223" column="23" selection-start-line="28" selection-start-column="4" selection-end-line="224" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/SpringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="48" column="1" selection-start-line="48" selection-start-column="1" selection-end-line="48" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+            <element signature="e#1573#1574#0" expanded="true" />
+            <element signature="e#1634#1635#0" expanded="true" />
+            <element signature="e#1726#1727#0" expanded="true" />
+            <element signature="e#1793#1794#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/AutoReceiptJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="53" column="50" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/top/sstore/utils/ContextListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="61" column="4" lean-forward="true" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1312,10 +1323,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>sstore</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.29701835" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -1358,11 +1371,11 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Spring|sstore</last-edited>
+          <last-edited>Web|sstore</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.29701835" />
               </list>
             </option>
           </splitter-proportions>

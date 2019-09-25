@@ -91,6 +91,7 @@ public class MailServiceImpl implements IMailService {
             logger.info("邮件已经发送。");
         } catch (MessagingException e) {
             logger.error("发送邮件时发生异常！", e);
+            throw new RuntimeException();
         }
     }
 

@@ -79,9 +79,10 @@ public class ServiceServiceImpl implements IServiceService {
     }
 
     @Override
-    public PageInfo<Service> selectServiceOfAllByIds(List<Integer> serviceIds, Integer pageNum) {
+    public PageInfo<Service> selectServiceOfAllByIds(List<Integer> serviceIds, Integer pageNum, String orderBy) {
         ServiceExample example = new ServiceExample();
 
+        example.setOrderByClause(orderBy);  //排序
         example.createCriteria().andServIdIn(serviceIds);
 
         PageHelper.startPage(pageNum, staticValues.getPageSizeBySearch());

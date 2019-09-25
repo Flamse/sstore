@@ -27,7 +27,7 @@ public interface ISearchService {
      * @date 2019/6/6/006 20:25
      * 查找商品通过标签（模糊查询，单个关键词）
      */
-    PageInfo<Service> selectServiceByLabel(List<String> labelBits, Integer pageNum);
+    PageInfo<Service> selectServiceByLabel(List<String> labelBits, Integer pageNum, String orderBy);
 
     /**
      * @author zh
